@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>fstdropdown demo</title>
+    <meta name="description" content="fstdropdown demo">
+    <meta name="author" content="VirtusX">
+    <link rel="stylesheet" href="fstdropdown.css">
+</head>
+<body>
+    <h1>fstdropdown demo</h1>
+    <p>fstdropdown initializes on page load, just add class "fstdropdown-select" to your select. 	</p>
+    <p>
+        <code>	 &lt;select class='fstdropdown-select'>	 &lt;/select>	</code>
+        <select class='fstdropdown-select' id="first">
+            <option value="">Select option</option>
+            <option value="1">1   First   2</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+        </select>
+    </p>
+   
+    <script src="fstdropdown.js"></script>
+    <script>
+        function setDrop() {
+            if (!document.getElementById('third').classList.contains("fstdropdown-select"))
+                document.getElementById('third').className = 'fstdropdown-select';
+            setFstDropdown();
+        }
+        setFstDropdown();
+       
+    </script>
+</body>
+</html>
