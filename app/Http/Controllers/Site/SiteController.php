@@ -41,6 +41,13 @@ class SiteController extends DM_BaseController
         return view(parent::loadView($this->view_path . '.all-college'), compact('data'));
     }
 
+    // College Details
+    public function collegeDetails($id)
+    {
+        $data['single'] = CollegeList::findorFail($id);
+        return view(parent::loadView($this->view_path . '.college-details'), compact('data'));
+    }
+
    
     //Contact Us 
     public function contact()

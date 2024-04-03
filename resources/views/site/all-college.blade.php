@@ -92,7 +92,7 @@
                     <div class="col-md-12" '="" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
                     <form style="margin-top: -19px;">
                     <a name="add-wishlist" class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 255px;margin-right: 10px;" id="1" onclick="function2(this.id)">Add to WishList</a>
-                    <a class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 5px;margin-right: 10px;" id="1" >View College</a>
+                    <a class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
                 </form>
                 <p>
 

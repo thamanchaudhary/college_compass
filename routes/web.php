@@ -62,5 +62,5 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     // All College List
     Route::get('/all-colleges',                                [App\Http\Controllers\Site\SiteController::class, 'allCollege'])->name('allcollege');
     // COllege details
-    Route::get('/college/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'collegeDetails'])->name('single');
+    Route::get('/college/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'collegeDetails'])->name('post.show');
 });

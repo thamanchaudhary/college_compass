@@ -35,7 +35,7 @@ class CollegeList extends Model
             'examp_required' => 'required|string|max:225|min:2',
             'course' => 'required|string|max:225|min:2',
             'degree' => 'required|string|max:225|min:2',
-            'image_1' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_1' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
 
