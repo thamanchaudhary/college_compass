@@ -33,7 +33,6 @@ class CollegeList extends Model
             'contact' => 'required|string|max:225|min:2',
             'email' => 'required|string|max:225|min:2',
             'examp_required' => 'required|string|max:225|min:2',
-            'reconization' => 'required|string|max:225|min:2',
             'course' => 'required|string|max:225|min:2',
             'degree' => 'required|string|max:225|min:2',
             'image_1' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -43,5 +42,24 @@ class CollegeList extends Model
     public function getData()
     {
         return $this->paginate(10);
+    }
+
+    public function getUniversity()
+    {
+        return University::get();
+    }
+
+    public function getProgram()
+    {
+        return Program::get();
+    }
+
+    public function University()
+    {
+        return $this->belongsTo(University::class);
+    }
+    public function Program()
+    {
+        return $this->belongsTo(Program::class);
     }
 }

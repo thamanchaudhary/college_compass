@@ -15,7 +15,10 @@
             <p><span class="bold">Contact </span>: {{ $data['rows']->contact }}</p>
             <p><span class="bold">Email </span>: {{ $data['rows']->email }}</p>
             <p><span class="bold">Examp Required </span>: {{ $data['rows']->examp_required }}</p>
-            <p><span class="bold">Reconization </span>: {{ $data['rows']->reconization }}</p>
+            <p><span class="bold">Reconization </span>:@if(isset($data['rows']->University)) {{ $data['rows']->University->name  }} @endif</p>
+            <p><span class="bold">Program </span>:@if(isset($data['rows']->Program)) {{ $data['rows']->Program->name  }} @endif</p>
+
+
             <p><span class="bold">Course </span>: {{ $data['rows']->course }}</p>
             <p><span class="bold">Degree </span>: {{ $data['rows']->degree }}</p>
             <p><span class="bold">Description </span>: {{ $data['rows']->description }}</p>

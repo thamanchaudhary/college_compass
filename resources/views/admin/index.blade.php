@@ -32,7 +32,7 @@
                     <i class="fa fa-tasks"></i>
                 </div>
                 <div class="value">
-                    <h1 class=" count2">2</h1>
+                    <h1 class=" count2">{{ ($data['count_college']) }}</h1>
                     <h6>Total College</h6>
                 </div>
             </section>
@@ -43,7 +43,7 @@
                     <i class="fa fa-bar-chart-o"></i>
                 </div>
                 <div class="value">
-                    <h1 class=" count3">22</h1>
+                    <h1 class=" count3">{{ ($data['count_university']) }}</h1>
                     <h6>University List</h6>
                 </div>
             </section>

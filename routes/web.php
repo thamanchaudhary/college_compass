@@ -54,11 +54,13 @@ Route::group(['namespace' => 'User', 'prefix' => '/user', 'as' => 'user.', 'midd
  * site route
  */
 
- Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
+Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     /**
      * Route for home page
      */
     Route::get('/',                                           [App\Http\Controllers\Site\SiteController::class, 'index'])->name('index');
-
-   
+    // All College List
+    Route::get('/all-colleges',                                [App\Http\Controllers\Site\SiteController::class, 'allCollege'])->name('allcollege');
+    // COllege details
+    Route::get('/college/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'collegeDetails'])->name('single');
 });

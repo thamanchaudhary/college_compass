@@ -8,7 +8,7 @@
             <li><a href="{{ URL::route('admin.university.index') }}" class="{{ ($_panel == 'University') ? 'active' : '' }}"><span>{{__('University list')}}</span></a></li>
             @endif
             @if(Route::has('admin.index'))
-            <li><a href="{{ URL::route('admin.college.index') }}" class="{{ ($_panel == 'College List') ? 'active' : '' }}"><span>{{__('Program List')}}</span></a></li>
+            <li><a href="{{ URL::route('admin.program.index') }}" class="{{ ($_panel == 'Program') ? 'active' : '' }}"><span>{{__('Program List')}}</span></a></li>
             @endif
             @if(Route::has('admin.index'))
             <li><a href="{{ URL::route('admin.college.index') }}" class="{{ ($_panel == 'College') ? 'active' : '' }}"><span>{{__('College List')}}</span></a></li>

@@ -43,6 +43,18 @@ Route::group(['prefix' => 'university',                     'as' => 'university.
     Route::get('/{id}',                                [App\Http\Controllers\Admin\UniversityController::class, 'destroy'])->name('destroy');
     Route::get('/show/{id}',                           [App\Http\Controllers\Admin\UniversityController::class, 'show'])->name('show');
 });
+/** 
+ * Program Setup  ////
+ */
+Route::group(['prefix' => 'program',                     'as' => 'program.'], function () {
+    Route::get('/',                                    [App\Http\Controllers\Admin\ProgramController::class, 'index'])->name('index');
+    Route::get('/create',                              [App\Http\Controllers\Admin\ProgramController::class, 'create'])->name('create');
+    Route::post('',                                    [App\Http\Controllers\Admin\ProgramController::class, 'store'])->name('store');
+    Route::get('/edit/{id}',                           [App\Http\Controllers\Admin\ProgramController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}',                        [App\Http\Controllers\Admin\ProgramController::class, 'update'])->name('update');
+    Route::get('/{id}',                                [App\Http\Controllers\Admin\ProgramController::class, 'destroy'])->name('destroy');
+    Route::get('/show/{id}',                           [App\Http\Controllers\Admin\ProgramController::class, 'show'])->name('show');
+});
 
 
 

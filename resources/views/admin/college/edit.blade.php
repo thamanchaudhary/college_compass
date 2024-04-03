@@ -95,11 +95,29 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Reconization</label> <br>
-                                <select name="reconization" id="reconization" class="form-control">
+                                <select name="university_id" id="university_id" class="form-control">
+                                    @if(isset($data['university']))
                                     <option value=>--Choose University--</option>
-                                    <option value="TU" @if($data['rows']->reconization == 'TU') selected @endif>TU</option>
-                                    <option value="PU" @if($data['rows']->reconization == 'PU') selected @endif>PU</option>
-                                    <option value="KU" @if($data['rows']->reconization == 'KU') selected @endif>KU</option>
+                                    @foreach($data['university'] as $row)
+                                    <option value="{{ $row->id }}" @if($data['rows']->university_id == $row->id) selected @endif>{{ $row->name }}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                                @if($errors->has('email'))
+                                <p id="name-error" class="help-block" for="email"><span>{{ $errors->first('email') }}</span></p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="email">Program</label> <br>
+                                <select name="program_id" id="program_id" class="form-control">
+                                    @if(isset($data['program']))
+                                    <option value=>--Choose Program--</option>
+                                    @foreach($data['program'] as $row)
+                                    <option value="{{ $row->id }}" @if($data['rows']->program_id == $row->id) selected @endif>{{ $row->name }}</option>
+                                    @endforeach
+                                    @endif
                                 </select>
                                 @if($errors->has('email'))
                                 <p id="name-error" class="help-block" for="email"><span>{{ $errors->first('email') }}</span></p>
@@ -124,7 +142,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">About </label> <br>
                                 <textarea class="form-control rounded" name="description" id="about" cols="10" rows="5">@if(isset($data['rows']->description)) {{ $data['rows']->description   }} @endif</textarea>

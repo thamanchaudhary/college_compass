@@ -39,7 +39,7 @@
                                 <label for="expire_date">Status </label> <br>
                                 <div class="form-group">
                                     <label class="ui-checkbox">
-                                        <input type="hidden" style="scale: 1.6;"name="status" value=0><span class="input-span"></span>
+                                        <input type="hidden" style="scale: 1.6;" name="status" value=0><span class="input-span"></span>
                                         <input type="checkbox" style="scale: 1.6;" name="status" value=1><span class="input-span"></span>
                                     </label>
                                 </div>

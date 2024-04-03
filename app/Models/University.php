@@ -26,4 +26,9 @@ class University extends Model
     {
         return $this->paginate(10);
     }
+
+    public function getUniversity()
+    {
+        return University::get();
+    }
 }

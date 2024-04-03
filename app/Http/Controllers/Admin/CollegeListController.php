@@ -32,7 +32,9 @@ class CollegeListController extends DM_BaseController
 
     public function create()
     {
-        return view(parent::loadView($this->view_path . '.create'));
+        $data['university'] = $this->model->getUniversity();  
+        $data['program'] = $this->model->getProgram();      
+        return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
     {
@@ -45,10 +47,11 @@ class CollegeListController extends DM_BaseController
         $model->contact               = $request->contact;
         $model->email                 = $request->email;
         $model->examp_required        = $request->examp_required;
-        $model->reconization          = $request->reconization;
         $model->course                = $request->course;
         $model->degree                = $request->degree;
         $model->description           = $request->description;
+        $model->university_id         = $request->university_id;
+        $model->program_id            = $request->program_id;
         $success                      = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {
@@ -72,6 +75,8 @@ class CollegeListController extends DM_BaseController
     }
     public function edit($id)
     {
+        $data['university'] = $this->model->getUniversity();  
+        $data['program'] = $this->model->getProgram();      
         $data['rows'] = $this->model::where('id', '=', $id)->firstOrFail();
         return view(parent::loadView($this->view_path . '.edit'), compact('data'));
     }
@@ -86,10 +91,11 @@ class CollegeListController extends DM_BaseController
         $model->contact                = $request->contact;
         $model->email                  = $request->email;
         $model->examp_required         = $request->examp_required;
-        $model->reconization           = $request->reconization;
         $model->course                 = $request->course;
         $model->degree                 = $request->degree;
         $model->description            = $request->description;
+        $model->university_id         = $request->university_id;
+        $model->program_id            = $request->program_id;
         $success                       = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {
