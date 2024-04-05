@@ -66,7 +66,7 @@
 
 
 
-               
+
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"></p>
 
                 <div class="page-header">
@@ -90,9 +90,6 @@
                     <h3 style="color:#368dc5">Courses Offered</h3>
                 </div>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"></p>
-
-
-
                 <div class="page-header">
                     <h3 style="color:#368dc5">Contact Information of </h3>
                 </div>

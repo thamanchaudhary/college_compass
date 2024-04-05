@@ -30,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $all_view['setting'] = DB::table('settings')->first();
+        // Program table get Data
+        $all_view['program'] = DB::table('programs')->get();
          View::share(compact('all_view'));
 
     }

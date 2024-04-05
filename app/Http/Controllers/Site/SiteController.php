@@ -48,6 +48,13 @@ class SiteController extends DM_BaseController
         return view(parent::loadView($this->view_path . '.college-details'), compact('data'));
     }
 
+    //Category Detail
+    public function ProgramCategory($id)
+    {
+        $data['single'] = CollegeList::where('program_id', $id)->get();
+        return view(parent::loadView($this->view_path . '.category'), compact('data'));
+    }
+
    
     //Contact Us 
     public function contact()

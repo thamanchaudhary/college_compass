@@ -1,6 +1,5 @@
     <!-- Footer -->
     <section class="footer">
-        <img src="images/yu.jpg">
 
         <div class="box-container">
 

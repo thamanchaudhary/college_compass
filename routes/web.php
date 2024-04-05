@@ -19,23 +19,6 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-/**
- * / Password Reset Routes...
- */
-Route::get('password/resetform', [Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.resetform');
-Route::post('password/email', [Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('password/request/{token}', [Auth\ResetPasswordController::class, 'showResetForm'])->name('password.request.token');
-Route::post('password/update', [Auth\ResetPasswordController::class, 'reset'])->name('password.update');
-/**
- * Ajax Routes
- */
-Route::post('/getLand',               [App\Http\Controllers\DropdownController::class, 'getLand'])->name('getLand'); // for get land list
-Route::post('/getProducts',              [App\Http\Controllers\DropdownController::class, 'getProduct'])->name('getProduct'); // for get land list
-Route::post('/getAnimalList',         [App\Http\Controllers\DropdownController::class, 'getAnimalList'])->name('getAnimalList'); // for Animal list
-
-Route::post('/getDistrict',          [App\Http\Controllers\Ajax\StateDistrictPalikaController::class, 'getDistrict'])->name('getDistrict');
-Route::post('/getPalika',            [App\Http\Controllers\Ajax\StateDistrictPalikaController::class, 'getPalika'])->name('getPalika');
-Route::get('/status',                             [App\Http\Controllers\Admin\UserController::class, 'userOnlineStatus'])->name('userOnlineStatus');
 
 /**
  * Admin  Routes
@@ -63,4 +46,8 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     Route::get('/all-colleges',                                [App\Http\Controllers\Site\SiteController::class, 'allCollege'])->name('allcollege');
     // COllege details
     Route::get('/college/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'collegeDetails'])->name('post.show');
+    // College Program
+    Route::get('/program/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'ProgramCategory'])->name('program.category');
+    // Contact Us
+    Route::get('/contact',                                     [App\Http\Controllers\Site\SiteController::class, 'contact'])->name('contact');
 });
