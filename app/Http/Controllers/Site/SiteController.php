@@ -13,6 +13,9 @@ use App\Models\CollegeList;
 use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use DB;
+use Session;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends DM_BaseController
 {
@@ -22,10 +25,13 @@ class SiteController extends DM_BaseController
     protected $model;
     protected $table;
     protected $contact_email;
+    protected $dm_post;
 
     public function __construct(Request $request, DM_Post $dm_post, Setting $setting)
     {
         $this->dm_post = $dm_post;
+        $this->contact_email = $setting::pluck('site_email')->first();
+
     }
 
     //Home Page 
@@ -60,6 +66,25 @@ class SiteController extends DM_BaseController
     public function contact()
     {
         return view(parent::loadView($this->view_path . '.contact'));
+    }
+
+    //Message send in Email
+    public function Message(Request $request)
+    {
+        dd($request->all());
+         // Sending Mail to Owner
+        Mail::send('site.emails.contact', $data, function ($message) use ($data) {
+            $message->from($data['email']);
+            $message->to($this->contact_email);
+            $message->subject('Mail From MOEST Website');
+        });
+        // // Sending Response To Sender
+        Mail::send('site.emails.response', $data, function ($message) use ($data) {
+            $message->from($this->contact_email);
+            $message->to($data['email']);
+            $message->subject('Thankyou !! from MOEST');
+        });
+        return redirect()->back()->with('success', 'Message Send Successfully');
     }
 
    

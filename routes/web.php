@@ -50,4 +50,6 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     Route::get('/program/{id}',                                [App\Http\Controllers\Site\SiteController::class, 'ProgramCategory'])->name('program.category');
     // Contact Us
     Route::get('/contact',                                     [App\Http\Controllers\Site\SiteController::class, 'contact'])->name('contact');
+    // Message
+    Route::post('/message',                                    [App\Http\Controllers\Site\SiteController::class, 'Message'])->name('message');
 });

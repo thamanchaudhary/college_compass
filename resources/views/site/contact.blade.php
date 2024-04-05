@@ -17,21 +17,22 @@
                     <hr>
                     <p>Our friendly customer service representatives are committed to answering all your questions and meeting any need you may have. We would love to hear from you! Please fill out the form below so we may assist you.</p>
                     <br />
-                    <form role="form" class="contact-form" action="send.php" method="POST">
+                    <form action="{{ route('site.message') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputName">Your Name: *</label>
-                            <input required type="text" class="form-control" id="inputName" name="inputName" placeholder="Your Name: *">
+                            <input required type="text" class="form-control"  name="full_name" id="full_name" placeholder="Your Name: *">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputEmail1">Email: *</label>
-                            <input required type="email" class="form-control" id="inputEmail1" name="inputEmail1" placeholder="Email: *">
+                            <input required type="email" class="form-control"  name="email" id="email" placeholder="Email: *">
                         </div>
                         <div class="clearfix"></div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <label class="sr-only" for="inputSubject">Subject:</label>
-                            <input type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Subject:">
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject:">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group col-md-6">
                             <textarea required class="form-control" rows="5" name="message" placeholder="Message: *"></textarea>
                         </div>
                         <button type="submit" class="btn btn-lg btn-primary">Submit</button>
