@@ -45,7 +45,14 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="city">City</label> <br>
-                                <input class="form-control rounded" type="text" id="city" value="{{ old('city') }}" name="city" placeholder="City">
+                                <select id="city" name="city" class="form-control">
+                                    <option value="all">All</option>
+                                    <option value="kathmandu">Kathmandu</option>
+                                    <option value="lalitpur">Lalitpur</option>
+                                    <option value="bhaktapur">Bhaktapur</option>
+                                    <option value="pokhara">Pokhara</option>
+                                    <option value="hetauda">Hetauda</option>
+                                </select>
                                 @if($errors->has('city'))
                                 <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('city') }}</span></p>
                                 @endif

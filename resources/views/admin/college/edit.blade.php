@@ -45,7 +45,14 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="city">City</label> <br>
-                                <input class="form-control rounded" type="text" id="city" value="@if(isset($data['rows']->city)) {{ $data['rows']->city   }} @endif" name="city" placeholder="City">
+                                <select id="city" name="city" class="form-control">
+                                    <option value="all">All</option>
+                                    <option value="kathmandu" @if($data['rows']->city == 'kathmandu') selected @endif>Kathmandu</option>
+                                    <option value="lalitpur" @if($data['rows']->city == 'lalitpur') selected @endif>Lalitpur</option>
+                                    <option value="bhaktapur" @if($data['rows']->city == 'bhaktapur') selected @endif>Bhaktapur</option>
+                                    <option value="pokhara" @if($data['rows']->city == 'pokhara') selected @endif>Pokhara</option>
+                                    <option value="hetauda" @if($data['rows']->city == 'hetauda') selected @endif>Hetauda</option>
+                                </select>
                                 @if($errors->has('city'))
                                 <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('city') }}</span></p>
                                 @endif
