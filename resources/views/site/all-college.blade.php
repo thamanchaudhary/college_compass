@@ -14,18 +14,19 @@
 
                 <h3><span>Filters</span></h3>
                 <div class="col-md-12" style="background-color: rgba(175, 177, 179, 0.1);box-shadow: rgba(57, 57, 57, 0.16) 2px 0px 20px;border:rgba(0, 0, 0, 0.1) 0.5px solid;">
-                    <form action="allcolleges.php" method="post" name="filter_v">
+                    <form action="" method="post" name="filter_v">
                         <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">Degree</h3>
                         <hr>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px;">Engineering</span>
-                        <input type="checkbox" value="engineering" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="degree">
+                        @if(isset($data['program']))
+                        @foreach($data['program'] as $row)
+                        <input type="checkbox" id="{{ $row->name }}<" name="vehicle1" value="{{ $row->id }}" style="scale: 1.5;">
+                        <label for="vehicle1">{{ $row->name }}</label><br>
                         <br>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">CSIT</span>
-                        <input type="checkbox" value="csit" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="degree">
-                        <br>
-                        <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">Location</h3>
+                        @endforeach
+                        @endif
+                        <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">City</h3>
                         <hr>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">Location</span>
+                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">City</span>
                         <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city_option">
                             <option value="all">All</option>
                             <option value="kathmandu">Kathmandu</option>
@@ -33,37 +34,26 @@
                             <option value="bhaktapur">Bhaktapur</option>
                             <option value="pokhara">Pokhara</option>
                             <option value="hetauda">Hetauda</option>
-
                         </select>
-
+                        <hr>
+                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">University</span>
+                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city_option">
+                            <option value="all">University</option>
+                            @if(isset($data['university']))
+                            @foreach($data['university'] as $row)
+                            <option value="{{$row->id }}">{{ $row->name }}</option>
+                            @endforeach
+                            @endif
+                        </select>
                         <h3 style="font-size: 20px;margin-top:30px;margin-bottom:15px;">Exams Accepted</h3>
                         <hr>
-                        <p style="font-size: 18px;font-weight: bold;color: rgba(0, 0, 0, 0.88);margin-top: 0px;margin-bottom: 9px;"><u>For Engineering:</u></p>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">IOE</span>
-                        <input type="checkbox" value="IOE" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="exam"><br>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">KUCAT</span>
-                        <input type="checkbox" value="KUCAT" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="exam"><br>
-                        <p style="font-size: 18px;font-weight: bold;color: rgba(0, 0, 0, 0.88);margin-top: 0px;margin-bottom: 9px;"><u>For CSIT:</u></p>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">IOST</span>
-                        <input type="checkbox" value="IOST" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="exam"><br>
-                        <br>
-                        <h3 style="font-size: 20px;margin-top:30px;margin-bottom:15px;">Degree Preferance</h3>
-                        <hr>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">TU Approved</span>
-                        <input type="checkbox" value="TU" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="recog"><br>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">KU Approved</span>
-                        <input type="checkbox" value="KU" style="width: 25px;position:absolute;height: 18px;padding-left: 10px;right:110px;" name="recog"><br>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">PU Recognized</span>
-                        <input type="checkbox" value="PU" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="recog"><br>
-                        <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">Mode</h3>
-                        <hr>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">Day Time</span>
-                        <input type="checkbox" value="csit" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;"><br>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 0px;">Morning Time</span>
-                        <input type="checkbox" value="csit" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;"><br>
-
+                        <select name="examp_required" id="examp_required" class="form-control">
+                            <option value=>--Choose Exam--</option>
+                            <option value="IOST">IOST</option>
+                            <option value="CMAT">CMAT</option>
+                            <option value="IOE">IOE</option>
+                        </select>
                         <p><input type="submit" class="btn btn-default btn-md" style="width: 100%;" name="filter_value" value="Apply Filters"></p>
-
                     </form>
                 </div>
             </aside>

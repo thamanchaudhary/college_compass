@@ -11,7 +11,9 @@ use App\Models\Career;
 use App\Models\Clients;
 use App\Models\CollegeList;
 use App\Models\Product;
+use App\Models\Program;
 use App\Models\Setting;
+use App\Models\University;
 use Illuminate\Http\Request;
 use DB;
 use Session;
@@ -44,6 +46,8 @@ class SiteController extends DM_BaseController
     public function allCollege()
     {
         $data['rows'] = CollegeList::orderBy('id', 'desc')->get();
+        $data['university'] = University::get();
+        $data['program'] = Program::get();
         return view(parent::loadView($this->view_path . '.all-college'), compact('data'));
     }
 
