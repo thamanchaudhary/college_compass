@@ -71,19 +71,17 @@ class SiteController extends DM_BaseController
     //Message send in Email
     public function Message(Request $request)
     {
-        dd($request->all());
-         // Sending Mail to Owner
-        Mail::send('site.emails.contact', $data, function ($message) use ($data) {
-            $message->from($data['email']);
-            $message->to($this->contact_email);
-            $message->subject('Mail From MOEST Website');
-        });
-        // // Sending Response To Sender
-        Mail::send('site.emails.response', $data, function ($message) use ($data) {
-            $message->from($this->contact_email);
-            $message->to($data['email']);
-            $message->subject('Thankyou !! from MOEST');
-        });
+        // dd($request->all());
+        $data = [
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ];
+       
+        \Mail::to('thaman@softechfoundation.com')->send(new \App\Mail\Contact($data));
+        dd("Email is Sent.");
+
         return redirect()->back()->with('success', 'Message Send Successfully');
     }
 

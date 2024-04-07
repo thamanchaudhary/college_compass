@@ -16,7 +16,7 @@
                 <div class="col-md-12" style="background-color: rgba(175, 177, 179, 0.1);box-shadow: rgba(57, 57, 57, 0.16) 2px 0px 20px;border:rgba(0, 0, 0, 0.1) 0.5px solid;">
                     <form action="allcolleges.php" method="post" name="filter_v">
                         <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">Degree</h3>
-                        
+                        <hr>
                         <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px;">Engineering</span>
                         <input type="checkbox" value="engineering" style="width: 25px;position: absolute;height: 18px;padding-left: 10px;right:110px;" name="degree">
                         <br>
