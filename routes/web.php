@@ -52,4 +52,7 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     Route::get('/contact',                                     [App\Http\Controllers\Site\SiteController::class, 'contact'])->name('contact');
     // Message
     Route::post('/message',                                    [App\Http\Controllers\Site\SiteController::class, 'Message'])->name('message');
+
+    // Search
+    Route::get('/search',                                      [App\Http\Controllers\Site\SiteController::class, 'search'])->name('search');
 });

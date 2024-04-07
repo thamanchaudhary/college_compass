@@ -65,6 +65,16 @@ class SiteController extends DM_BaseController
         return view(parent::loadView($this->view_path . '.category'), compact('data'));
     }
 
+    // Content Search
+
+    public function search(Request $request)
+    {
+        dd($request->all());
+        $search = $request->search;
+        $data['rows'] = CollegeList::where('name', 'like', '%' . $search . '%')->get();
+        return view(parent::loadView($this->view_path . '.search'), compact('data'));
+    }
+
    
     //Contact Us 
     public function contact()

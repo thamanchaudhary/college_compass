@@ -14,7 +14,8 @@
 
                 <h3><span>Filters</span></h3>
                 <div class="col-md-12" style="background-color: rgba(175, 177, 179, 0.1);box-shadow: rgba(57, 57, 57, 0.16) 2px 0px 20px;border:rgba(0, 0, 0, 0.1) 0.5px solid;">
-                    <form action="" method="post" name="filter_v">
+                    <form action='{{ Route('site.search')}}' id='search-form' method='GET' target='_top'>
+                        {{ csrf_field() }}
                         <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">Degree</h3>
                         <hr>
                         @if(isset($data['program']))
