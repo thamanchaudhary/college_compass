@@ -79,6 +79,7 @@ class SiteController extends DM_BaseController
             ->where('examp_required', 'LIKE', '%' .$examp_required. '%')
             ->orderBy('id', 'desc')
             ->get();
+            
         // Searching Data
         // dd($data['rows']);
         $data['university'] = University::get();
