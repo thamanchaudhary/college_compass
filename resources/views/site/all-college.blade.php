@@ -20,7 +20,7 @@
                         <hr>
                         @if(isset($data['program']))
                         @foreach($data['program'] as $row)
-                        <input type="checkbox" id="{{ $row->name }}<" name="vehicle1" value="{{ $row->id }}" style="scale: 1.5;">
+                        <input type="checkbox" id="{{ $row->name }}<" name="program_id" value="{{ $row->id }}" style="scale: 1.5;">
                         <label for="vehicle1">{{ $row->name }}</label><br>
                         <br>
                         @endforeach
@@ -28,7 +28,7 @@
                         <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">City</h3>
                         <hr>
                         <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">City</span>
-                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city_option">
+                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city">
                             <option value="all">All</option>
                             <option value="kathmandu">Kathmandu</option>
                             <option value="lalitpur">Lalitpur</option>
@@ -38,7 +38,7 @@
                         </select>
                         <hr>
                         <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">University</span>
-                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city_option">
+                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="university_id">
                             <option value="all">University</option>
                             @if(isset($data['university']))
                             @foreach($data['university'] as $row)

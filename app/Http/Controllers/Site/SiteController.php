@@ -33,7 +33,6 @@ class SiteController extends DM_BaseController
     {
         $this->dm_post = $dm_post;
         $this->contact_email = $setting::pluck('site_email')->first();
-
     }
 
     //Home Page 
@@ -69,13 +68,21 @@ class SiteController extends DM_BaseController
 
     public function search(Request $request)
     {
-        dd($request->all());
-        $search = $request->search;
-        $data['rows'] = CollegeList::where('name', 'like', '%' . $search . '%')->get();
-        return view(parent::loadView($this->view_path . '.search'), compact('data'));
+        $program = $request->program;
+        $city = $request->city;
+        $university_id = $request->university_id;
+        $examp_required = $request->examp_required;
+
+        $data['rows'] = CollegeList::where('program_id', $program)
+            ->orWhere('city', $city)
+            ->Where('university_id', $university_id)
+            ->Where('examp_required', $examp_required)
+            ->get();
+        // Searching Data
+        return view(parent::loadView($this->view_path . '.all-college'), compact('data'));
     }
 
-   
+
     //Contact Us 
     public function contact()
     {
@@ -92,12 +99,10 @@ class SiteController extends DM_BaseController
             'subject' => $request->subject,
             'message' => $request->message,
         ];
-       
+
         \Mail::to('thaman@softechfoundation.com')->send(new \App\Mail\Contact($data));
         dd("Email is Sent.");
 
         return redirect()->back()->with('success', 'Message Send Successfully');
     }
-
-   
 }
