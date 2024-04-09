@@ -68,18 +68,22 @@ class SiteController extends DM_BaseController
 
     public function search(Request $request)
     {
-        $program = $request->program;
+        $program = $request->program_id;
         $city = $request->city;
         $university_id = $request->university_id;
         $examp_required = $request->examp_required;
 
-        $data['rows'] = CollegeList::where('program_id', $program)
-            ->orWhere('city', $city)
-            ->Where('university_id', $university_id)
-            ->Where('examp_required', $examp_required)
+        $data['rows'] = CollegeList::where('program_id', 'LIKE', '%' .$program. '%')
+            ->where('city', 'LIKE', '%' .$city. '%')
+            ->orwhere('university_id', 'LIKE', '%' .$university_id.'%')
+            ->orwhere('examp_required', 'LIKE', '%' .$examp_required. '%')
+            ->orderBy('id', 'desc')
             ->get();
         // Searching Data
-        return view(parent::loadView($this->view_path . '.all-college'), compact('data'));
+        // dd($data['rows']);
+        $data['university'] = University::get();
+        $data['program'] = Program::get();
+        return view(parent::loadView($this->view_path . '.search'), compact('data'));
     }
 
 
