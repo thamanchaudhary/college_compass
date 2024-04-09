@@ -17,7 +17,7 @@
                     <li><a href="{{ route('site.program.category', ['id' => $row->id]) }}">{{ $row->name }}</a></li>
                     @endforeach
                     @endif
-                    <li><a href="#">Explore Career's</a></li>
+                    <li><a href="{{route('site.career')}}">Explore Career's</a></li>
                     <li><a href="{{route('site.contact')}}">Contact Us</a></li>
                     <li><a href="{{route('login')}}">Admin Login</a></li>
                 </ul>

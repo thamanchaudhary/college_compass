@@ -55,4 +55,7 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
 
     // Search
     Route::get('/search',                                      [App\Http\Controllers\Site\SiteController::class, 'search'])->name('search');
+
+    // Carrer Page
+    Route::get('/career',                                      [App\Http\Controllers\Site\SiteController::class, 'Career'])->name('career');
 });

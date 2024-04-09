@@ -73,18 +73,24 @@ class SiteController extends DM_BaseController
         $university_id = $request->university_id;
         $examp_required = $request->examp_required;
 
-        $data['rows'] = CollegeList::where('program_id', 'LIKE', '%' .$program. '%')
-            ->where('city', 'LIKE', '%' .$city. '%')
-            ->where('university_id', 'LIKE', '%' .$university_id.'%')
-            ->where('examp_required', 'LIKE', '%' .$examp_required. '%')
+        $data['rows'] = CollegeList::where('program_id', 'LIKE', '%' . $program . '%')
+            ->where('city', 'LIKE', '%' . $city . '%')
+            ->where('university_id', 'LIKE', '%' . $university_id . '%')
+            ->where('examp_required', 'LIKE', '%' . $examp_required . '%')
             ->orderBy('id', 'desc')
             ->get();
-            
+
         // Searching Data
         // dd($data['rows']);
         $data['university'] = University::get();
         $data['program'] = Program::get();
         return view(parent::loadView($this->view_path . '.search'), compact('data'));
+    }
+
+    //Career Page
+    public function Career()
+    {
+        return view(parent::loadView($this->view_path . '.career'));
     }
 
 

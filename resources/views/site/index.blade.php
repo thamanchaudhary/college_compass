@@ -3,7 +3,7 @@
 @endsection
 @section('content')
 <!-- Home Section -->
-<section class="home" id="home" style="background:url(images/grad.jpg) no-repeat; background-size: cover; background-position: center;">
+<section class="home" id="home" style="background:url({{ asset('assets/site/images/grad.jpg')}}) no-repeat; background-size: cover; background-position: center;">
     <!-- Content -->
     <div class="content">
         <h1>Find & <span>Apply</span> for your <span>Perfect</span> College</h1>
