@@ -76,7 +76,6 @@ class SiteController extends DM_BaseController
         $data['rows'] = CollegeList::where('program_id', 'LIKE', '%' . $program . '%')
             ->where('city', 'LIKE', '%' . $city . '%')
             ->where('university_id', 'LIKE', '%' . $university_id . '%')
-            ->where('examp_required', 'LIKE', '%' . $examp_required . '%')
             ->orderBy('id', 'desc')
             ->get();
 

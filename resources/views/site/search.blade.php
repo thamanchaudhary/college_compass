@@ -46,14 +46,7 @@
                             @endforeach
                             @endif
                         </select>
-                        <h3 style="font-size: 20px;margin-top:30px;margin-bottom:15px;">Exams Accepted</h3>
-                        <hr>
-                        <select name="examp_required" id="examp_required" class="form-control">
-                            <option value=>--Choose Exam--</option>
-                            <option value="IOST">IOST</option>
-                            <option value="CMAT">CMAT</option>
-                            <option value="IOE">IOE</option>
-                        </select>
+                       
                         <p><input type="submit" class="btn btn-default btn-md" style="width: 100%;" name="filter_value" value="Apply Filters"></p>
                     </form>
                 </div>
