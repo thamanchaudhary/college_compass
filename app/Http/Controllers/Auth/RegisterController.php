@@ -56,22 +56,9 @@ class RegisterController extends Controller
             [
                 'name' => ['required', 'string', 'max:20', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'string', 'min:6', 'confirmed'],
-                'mobile' => ['required', 'string', 'min:6', 'max:10'],
+                'password' => ['required', 'string', 'min:4', 'confirmed'],
             ],
-            [
-                'name.required'  => 'प्रयोगकर्ता पुरा नाम अनिवार्य छ ।',
-                'email.required' => 'प्रयोगकर्ता इमेल अनिवार्य छ ।',
-                'mobile.required' => 'प्रयोगकर्ता फोन नम्बर अनिवार्य छ ।',
-                'password.required'    => 'प्रयोगकर्ता पासवर्ड अनिवार्य छ ।',
-                'password.min' => 'पासवर्डको लम्बाइ कम्तिमा ४ अक्षर र हुनुपर्छ ।',
-                'password.confirmed' => 'पासवर्ड र पुनः पासवर्ड मेल खान्दैनन् ।',
-                'email.email' => 'इमेल ठेगाना अमान्य छ ।',
-                'email.unique' => 'यो इमेल पहिले नै रेजिष्टर भएको छ ।',
-                'mobile.min' => 'फोन नम्बरको लम्बाइ कम्तिमा ६ अक्षर र हुनुपर्छ ।',
-                'mobile.max' => 'फोन नम्बरको लम्बाइ बढीमा १० अक्षर र हुनुपर्छ ।',
-                'name.max' => 'प्रयोगकर्ता पुरा नामको लम्बाइ बढीमा २५५ अक्षर र हुनुपर्छ ।',
-            ]
+           
         );
     }
 
@@ -86,8 +73,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'mobile' => $data['mobile'],
-            'role' => 'user', // Default Role is 'user
+            // Default Role is 'user
             'password' => Hash::make($data['password']),
         ]);
     }

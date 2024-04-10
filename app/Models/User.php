@@ -30,7 +30,6 @@ class User extends Authenticatable
             $data->name                    = $name;
             $data->username                = $username;
             $data->email                   = $email;
-            $data->mobile                  = $mobile;
             $data->password                = bcrypt($password);
             // $data->role                    = $role;
             $data->status                  = 1;
@@ -54,7 +53,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'mobile',
         'last_login_at', 'last_login_ip'
     ];
 

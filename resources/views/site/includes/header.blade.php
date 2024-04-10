@@ -19,11 +19,24 @@
                     @endif
                     <li><a href="{{route('site.career')}}">Explore Career's</a></li>
                     <li><a href="{{route('site.contact')}}">Contact Us</a></li>
+
+                    @auth
+                    @if(auth()->user()->role == 'admin')
+                    <li><a href="{{route('admin.index')}}">Admin Dashboard</a></li>
+                    @endif
+                    @else
                     <li><a href="{{route('login')}}">Admin Login</a></li>
+                    @endauth
                 </ul>
             </nav>
             <div class="share">
-                <a href='login.php'><b>User Log In</b></a>
+                @auth
+                @if(auth()->user()->role == 'user')
+                <a href="{{route('login')}}"><b>User Dashboard</b></a>
+                @endif
+                @else
+                <a href="{{route('login')}}"><b>User Log In</b></a>
+                @endauth
                 <a href='{{ route('register')}}'><b>Register</b></a>
 
             </div>

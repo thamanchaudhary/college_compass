@@ -12,7 +12,7 @@
     @endif
     <form id="login-form" action="{{ route('login') }}" method="POST">
         @csrf
-        <h2 class="login-title" style="color: #008b8b;">Admin Login</h2>
+        <h2 class="login-title" style="color: #008b8b;">Login</h2>
         <div class="form-group">
             <div class="input-group-icon right">
                 <input class="form-control" type="email" value="{{ old('email') }}" name="email" placeholder="Email" autocomplete="off">
