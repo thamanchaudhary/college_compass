@@ -32,7 +32,7 @@
             <div class="share">
                 @auth
                 @if(auth()->user()->role == 'user')
-                <a href="{{route('user.detail-information')}}"><b>Hello ! {{ auth()->user()->name}}  My Account</b></a>
+                <a href="{{route('user.detail-information')}}"><b>Hello ! {{ auth()->user()->name}}</b></a>
                 @endif
                 @else
                 <a href="{{route('login')}}"><b>User Log In</b></a>
