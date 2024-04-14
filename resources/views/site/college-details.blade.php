@@ -77,26 +77,31 @@
 
                 <div class="page-header">
                     <h3 style="color:#368dc5">Exams Required</h3>
+                    <p> {{ $data['single']->examp_required}}
+                    </p>
                 </div>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"></p>
 
 
-                <div class="page-header">
-                    <h3 style="color:#368dc5">Admission Procedure</h3>
-                </div>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"></p>
 
                 <div class="page-header">
                     <h3 style="color:#368dc5">Courses Offered</h3>
+                    <p>{{ $data['single']->course}}</p>
                 </div>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"></p>
                 <div class="page-header">
                     <h3 style="color:#368dc5">Contact Information of </h3>
                 </div>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Address:</span>
+                    {{ $data['single']->address}}
                 </p>
-                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Website:</span><a href="" target="_blank"></a></p>
+                </p>
+                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Website:</span><a href="" target="_blank">
+                        {{ $data['single']->website}}</a></p>
+                </a></p>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">E-mail:</span>
+                    {{ $data['single']->email}}
                 </p>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Contact
                         No:</span> {{ $data['single']->contact}}</p>

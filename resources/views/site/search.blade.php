@@ -53,7 +53,6 @@
             </aside>
 
             <!-- Side Pane  Filters -->
-
             <section class="col-md-8 main-content" id="college-list" style="width:72.7777777777777%;">
                 <h2>Explore Colleges In Nepal</h2>
                 <p style="font-size: larger;"><strong>Explore the colleges in Nepal based on the filters provided on the left pane by clicking the required options to get the deired colleges below. </strong></p>
