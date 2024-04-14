@@ -46,7 +46,7 @@
                             @endforeach
                             @endif
                         </select>
-                        
+
                         <p><input type="submit" class="btn btn-default btn-md" style="width: 100%;" name="filter_value" value="Apply Filters"></p>
                     </form>
                 </div>
@@ -75,8 +75,9 @@
                     </div>
                     <div class="col-md-12" '="" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
                     <form style="margin-top: -19px;">
-                    <a name="add-wishlist" class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 255px;margin-right: 10px;" id="1" onclick="function2(this.id)">Add to WishList</a>
-                    <a class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
+                    <button type="submit" name="wish" class="btn btn-secondary btn-sm" onclick="addToWish(this)" data-product_id="{{ $row->id }}">
+                                    <i class="icon anm anm-heart-l me-2"></i> <span>Wishlist</span>
+                                </button>                        <a class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
                 </form>
                 <p>
 
@@ -98,4 +99,41 @@
     </div>
 
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
+<script>
+    function addToWish(elem) {
+        
+        var product_id = $(elem).data('product_id');
+        alert(product_id);
+        $.ajax({
+            url: "{{ route('user.wishlist.store') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                product_id: product_id,
+            },
+            success: function(response) {
+                if (typeof(response) != 'object') {
+                    response = $.parseJSON(response);
+                }
+                if (response.status) {
+                    swal({
+                            title: "Success",
+                            text: response.msg,
+                            icon: "success",
+                            buttons: true,
+                            dangerMode: false,
+                        })
+                        .then(function() {
+                            document.location.href = document.location.href;
+                        });
+                } else {
+                    swal(response.msg, "error");
+                }
+            }
+        });
+    }
+</script>
 @endsection
