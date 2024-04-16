@@ -34,7 +34,7 @@
                                         <div class="panel-title">User Detail</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
-                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><img src="{{ asset('assets/site/images/fr-05.jpg')}}" class="img-circle" width="80"></p>
                                         <p><b></b></p>
                                         <div class="row" style="padding:0px;">
                                             <div class="col-md-6">
@@ -61,7 +61,7 @@
                                         <div class="panel-title">My wish List</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
-                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><img src="{{ asset('assets/site/images/icons/wishlist.png')}}" class="img-circle" width="80"></p>
                                         <p><b></b></p>
                                         <div class="row" style="padding:0px;">
                                             <div class="col-md-6">
@@ -87,7 +87,7 @@
                                         <div class="panel-title">Carrers Instrested</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
-                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><img src="{{ asset('assets/site/images/icons/wish.png')}}" class="img-circle" width="80"></p>
                                         <p><b></b></p>
                                         <div class="row" style="padding:0px;">
                                             <div class="col-md-6">
@@ -114,7 +114,7 @@
                                         <div class="panel-title">Recommended College</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
-                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><img src="{{ asset('assets/site/images/icons/recom.png')}}" class="img-circle" width="80"></p>
                                         <p><b></b></p>
                                         <div class="row" style="padding:0px;">
                                             <div class="col-md-6">
