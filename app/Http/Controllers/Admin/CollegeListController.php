@@ -32,12 +32,14 @@ class CollegeListController extends DM_BaseController
 
     public function create()
     {
-        $data['university'] = $this->model->getUniversity();  
-        $data['program'] = $this->model->getProgram();      
+        $data['university'] = $this->model->getUniversity();
+        $data['program'] = $this->model->getProgram();
         return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
     {
+        dd($request->all());
+        
         $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
@@ -75,8 +77,8 @@ class CollegeListController extends DM_BaseController
     }
     public function edit($id)
     {
-        $data['university'] = $this->model->getUniversity();  
-        $data['program'] = $this->model->getProgram();      
+        $data['university'] = $this->model->getUniversity();
+        $data['program'] = $this->model->getProgram();
         $data['rows'] = $this->model::where('id', '=', $id)->firstOrFail();
         return view(parent::loadView($this->view_path . '.edit'), compact('data'));
     }
@@ -140,16 +142,16 @@ class CollegeListController extends DM_BaseController
         $image_2 = getcwd() . $data->image_2;
         $image_3 = getcwd() . $data->image_3;
         $image_4 = getcwd() . $data->image_4;
-        if(is_file($image_1)){
+        if (is_file($image_1)) {
             unlink($image_1);
         }
-        if(is_file($image_2)){
+        if (is_file($image_2)) {
             unlink($image_2);
         }
-        if(is_file($image_3)){
+        if (is_file($image_3)) {
             unlink($image_3);
         }
-        if(is_file($image_4)){
+        if (is_file($image_4)) {
             unlink($image_4);
         }
         if (!$data) {

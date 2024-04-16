@@ -9,7 +9,7 @@
         <div class="page-content">
             <div class="row" style="padding:0px">
                 <div class="col-md-2" style="width: 25%">
-                    <div class="sidebar content-box" style="display: block;">
+                    <div class="sidebar content-box" style="display: block;background-color:aliceblue">
                         <ul class="nav" style="text-align: -webkit-left;">
                             <!-- Main menu -->
                             <li class="current"><a href="{{ route('user.detail-information')}}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
@@ -27,11 +27,11 @@
                 </div>
                 <div class="col-md-10" style="width:70%">
                     <div class="row" style="padding:0px;">
-                        <div class="col-md-6">
-                            <div class="row" style="padding:0px">
+                        <div class="col-md-5" >
+                            <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
-                                        <div class="panel-title">User</div>
+                                        <div class="panel-title">User Detail</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
                                         <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
@@ -48,80 +48,88 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row" style="padding:0px">
+                            </div> <br>
+                            
+                        </div>
+                        <div class="col-md-1" >
+                           
+                        </div> 
+                        <div class="col-md-5" >
+                            <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
-                                        <div class="panel-title">Carrers Interested</div>
+                                        <div class="panel-title">My wish List</div>
                                     </div>
                                     <div class="content-box-large box-with-header">
-                                        <p><img src="images/icons/wish.png" class="img-circle" width="80"></p>
-                                        <p><b>BSC CSIT</b></p>
+                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><b></b></p>
                                         <div class="row" style="padding:0px;">
                                             <div class="col-md-6">
                                                 <p class="small mt">MEMBER SINCE</p>
                                                 <p>2024</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="small mt">CAREERS LIKED </p>
-                                                <p>2</p>
+                                                <p class="small mt">COLLEGES LIKED </p>
+                                                <p>4</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-6">
-                            <div class="row" style="padding:0px">
-                                <div class="col-md-12">
-                                    <div class="content-box-header">
-                                        <div class="panel-title">My WishList</div>
-                                    </div>
-                                    <div class="content-box-large box-with-header">
-                                        <p><img src="images/icons/wishlist.png" class="img-circle" width="80"></p>
-                                        <p><b>Wishlisted Colleges :</b></p>
-                                        <div class="row" style="padding:0px;">
-                                            <div class="col-md-6">
-                                                <p><a href="my_wishlist.php" class="btn btn-default btn-md" style="margin-left: 125px;margin-top: 10px;">VIEW</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row" style="padding:0px">
-                                <div class="col-md-12">
-                                    <div class="content-box-header">
-                                        <div class="panel-title">Recommended Colleges</div>
-                                    </div>
-                                    <div class="content-box-large box-with-header">
-                                        <p><img src="images/icons/recom.png" class="img-circle" width="80"></p>
-                                        <p><b>Recommended Colleges :2</b></p>
-                                        <div class="row" style="padding:0px;">
-                                            <div class="col-md-6">
-                                                <p><a href="recommended_list.php" class="profile-bt btn btn-default btn-md" style="margin-left: 125px;margin-top: 10px;">VIEW</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> <br>
+                            
                         </div>
                     </div>
-
-                    <div class="row" style="padding:0px">
-                        <div class="col-md-12 panel-warning">
-                            <div class="content-box-header panel-heading">
-                                <div class="panel-title ">Description Of User</div>
-
-
-                            </div>
-                            <div class="content-box-large box-with-header" style="font-size: medium;">
-                                Looking Forward For seeking an admisssion in a good college and excelling in my field of interest .
-                                <br><br>
-                            </div>
+                    <div class="row" style="padding:0px;">
+                        <div class="col-md-5" >
+                            <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
+                                <div class="col-md-12">
+                                    <div class="content-box-header">
+                                        <div class="panel-title">Carrers Instrested</div>
+                                    </div>
+                                    <div class="content-box-large box-with-header">
+                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><b></b></p>
+                                        <div class="row" style="padding:0px;">
+                                            <div class="col-md-6">
+                                                <p class="small mt">MEMBER SINCE</p>
+                                                <p>2024</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="small mt">COLLEGES LIKED </p>
+                                                <p>4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <br>
+                            
+                        </div>
+                        <div class="col-md-1" >
+                           
+                        </div> 
+                        <div class="col-md-5" >
+                            <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
+                                <div class="col-md-12">
+                                    <div class="content-box-header">
+                                        <div class="panel-title">Recommended College</div>
+                                    </div>
+                                    <div class="content-box-large box-with-header">
+                                        <p><img src="images/fr-05.jpg" class="img-circle" width="80"></p>
+                                        <p><b></b></p>
+                                        <div class="row" style="padding:0px;">
+                                            <div class="col-md-6">
+                                                <p class="small mt">MEMBER SINCE</p>
+                                                <p>2024</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="small mt">COLLEGES LIKED </p>
+                                                <p>4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <br>
+                            
                         </div>
                     </div>
                 </div>

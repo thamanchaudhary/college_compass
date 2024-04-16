@@ -17,6 +17,15 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
 });
 /** Main Setup Part
  */
+Route::group(['prefix' => 'location',                'as' => 'location.'], function () {
+    Route::get('/',                                    [App\Http\Controllers\Admin\LocationController::class, 'index'])->name('index');
+    Route::get('/create',                              [App\Http\Controllers\Admin\LocationController::class, 'create'])->name('create');
+    Route::post('',                                    [App\Http\Controllers\Admin\LocationController::class, 'store'])->name('store');
+    Route::get('/edit/{id}',                           [App\Http\Controllers\Admin\LocationController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}',                        [App\Http\Controllers\Admin\LocationController::class, 'update'])->name('update');
+    Route::get('/{id}',                                [App\Http\Controllers\Admin\LocationController::class, 'destroy'])->name('destroy');
+    Route::get('/show/{id}',                           [App\Http\Controllers\Admin\LocationController::class, 'show'])->name('show');
+});
 
 
 /** 
