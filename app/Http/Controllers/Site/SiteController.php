@@ -70,28 +70,27 @@ class SiteController extends DM_BaseController
     {
         //Multilevel Search
         $program = $request->program;
-        if(isset($program['0']) && $program['0'] != '') {
+        if (isset($program['0']) && $program['0'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['0'])
                 ->orderBy('id', 'desc')
                 ->get();
-        }else if(isset($program['1']) && $program['1'] != '') {
+        } else if (isset($program['1']) && $program['1'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['1'])
                 ->orderBy('id', 'desc')
                 ->get();
-        }else if(isset($program['2']) && $program['2'] != '') {
+        } else if (isset($program['2']) && $program['2'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['2'])
                 ->orderBy('id', 'desc')
                 ->get();
-        }else if(isset($program['3']) && $program['3'] != '') {
+        } else if (isset($program['3']) && $program['3'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['3'])
                 ->orderBy('id', 'desc')
                 ->get();
-        }else if(isset($program['4']) && $program['4'] != '') {
+        } else if (isset($program['4']) && $program['4'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['4'])
                 ->orderBy('id', 'desc')
                 ->get();
-        }
-        else {
+        } else {
             // return null;
             return redirect()->back()->with('error', 'Please Select Program');
         }

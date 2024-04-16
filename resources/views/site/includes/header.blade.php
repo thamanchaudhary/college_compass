@@ -13,7 +13,7 @@
                     <li><a href="{{route('site.allcollege')}}">All Colleges</a></li>
                     <!-- Program get  -->
                     @if(isset($all_view['program']) && !empty($all_view['program']))
-                    @foreach($all_view['program'] as $row)
+                    @foreach($all_view['program']->slice(0,3) as $row)
                     <li><a href="{{ route('site.program.category', ['id' => $row->id]) }}">{{ $row->name }}</a></li>
                     @endforeach
                     @endif
