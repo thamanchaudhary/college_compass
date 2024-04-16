@@ -38,11 +38,11 @@
                 <p>Depending on your college, and employer, fresh graduates get a salary in the range of NPR 15,000-30,000 per month.</p>
                 <p><a role="button" class="btn btn-primary" style="margin-top:10px" id="1002" onclick='function1(this.id)'>Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/man.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/man.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/cs.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/cs.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>CS/CA/CFA/CWA:</h3>
                 <hr>
@@ -59,11 +59,11 @@
                 <p> Information Technology has taken the world by storm. No office or organization can function without the assistance of the IT department. This global phenomenon is certainly attracting a massive number of students every year. As the number of IT enthusiast students increases, the number of IT colleges is also increasing. In the context of Nepal, there are plenty of IT courses provided by different colleges and universities. All these available choices could create choice paralysis among the students. </p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/it.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/it.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/masscomm.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/masscomm.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Mass Communication and Journalism:</h3>
                 <hr>
@@ -79,12 +79,12 @@
                 <p>Hotel Management provides an excellent opportunity to work with well-known brands in various roles. Post graduation in Hotel Management will help you getting a decent job through campus placement. After graduating in Hotel management, you can also work in catering services, Food technology startups, restaurants, Railways, shipping, corporate organizations, clubs, etc. You can expect a starting salary of NPR 10,000 to NPR 35,000.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/hotel.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/hotel.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/air.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/air.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Civil Aviation: Air Hostess/Commercial Pilot</h3>
                 <hr>
@@ -100,11 +100,11 @@
                 <p>The law is a highly competitive and evergreen field. You need to do LLB/LLM to become a practicing lawyer. After completing your LLB/LLM, you may also prepare for judicial services exams or join corporate legal firms. Graduates from top institutes also prefer to join LPOs (Legal Process Outsourcing) as it provides a lucrative career opportunity, high compensation, and faster growth. The compensation for fresh law graduates falls in the range of NPR 10,000 – 40,000 per month.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/law.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/law.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/bank.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/bank.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Banking, Financial Services, and Insurance</h3>
                 <hr>
@@ -120,11 +120,11 @@
                 <p>Library Science is a multidisciplinary field that includes practices and tools of management, information technology, education and several other areas. You need to have a relevant degree in Library science to be employed in school or college libraries, public and private libraries, and museums, etc. The salary ranges from NPR 15,000 to 30,000 per month.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/library.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/library.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/teach.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/teach.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Teaching/Education</h3>
                 <hr>
@@ -141,12 +141,12 @@
                 <p>If you want to get into Film and television industry, you need to try for some courses in related fields. You can also try your luck for National School of Drama which is the biggest institute for theater training in Nepal. Alternatively, you can start your channel on YouTube to showcase your talent to the online audience. If you are creative and talented, you will see your channel growing with the help of a little digital marketing efforts. Many YouTube stars are doing better than established film and television actors.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/film.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/film.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/model.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/model.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Modelling</h3>
                 <hr>
@@ -163,11 +163,11 @@
                 <p>Pay Scale – The packages for domestic BPOs start at NPR 8,000 per month while the salary for international BPOs ranges from NPR 15,000 to 40,000 per month.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/bpo.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/bpo.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/write.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/write.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Content/Technical writing</h3>
                 <hr>
@@ -183,14 +183,14 @@
                 <p>If you want to get into Film and television industry, you need to try for some courses in related fields. You can also try your luck for National School of Drama which is the biggest institute for theater training in Nepal. Alternatively, you can start your channel on YouTube to showcase your talent to the online audience. If you are creative and talented, you will see your channel growing with the help of a little digital marketing efforts. Many YouTube stars are doing better than established film and television actors.</p>
                 <p><a href="#" role="button" class="btn btn-primary" style="margin-top:10px">Learn more</a></p>
             </div>
-            <div class="col-md-5"> <img src="images/content__images/film.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/film.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
         </div>
 
 
 
 
         <div class="row no_padding nothing">
-            <div class="col-md-5"> <img src="images/content__images/entreprenur.jpg" alt="image" class="img-responsive no-margin full-width"> </div>
+            <div class="col-md-5"> <img src="{{asset('assets/site/images/content__images/entreprenur.jpg')}}" alt="image" class="img-responsive no-margin full-width"> </div>
             <div class="col-md-7">
                 <h3>Entrepreneurship</h3>
                 <hr>

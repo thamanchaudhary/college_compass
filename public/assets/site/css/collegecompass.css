@@ -24,9 +24,9 @@ html{
 	overflow-x: hidden;
 }
 .btn{
-	height: 6.5rem;
+	height: 5.5rem;
 	width: 23rem;
-	color: bisque;
+	color: #008B8B;
 	border: 0.2rem solid bisque;
 	outline: 0.2rem solid bisque;
 	outline-offset: -.8rem;
@@ -284,7 +284,7 @@ header .header-2.header-active{
 }
 .about .row .content .btn{
 	color:var(--darkcyan);
-	border-color: var(--darkcyan):
+	border-color: var(--darkcyan);
 	outline-color: var(--darkcyan); 
 }
 .about .row .content .btn:hover{

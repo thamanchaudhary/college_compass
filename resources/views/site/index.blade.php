@@ -13,7 +13,6 @@
 
         <h4>A <span>Family</span> Of Learning</h4>
         <p>We are a community of learners. <br>Our mission is to engage all students in partnership with family and community to become informed, compassionate & global citizens.</p>
-        <a href="allcolleges.php"><button class="btn">Explore Yourself</button></a>
     </div>
 
     <div class="shape"> </div>

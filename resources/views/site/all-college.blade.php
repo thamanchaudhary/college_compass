@@ -8,7 +8,7 @@
             <aside class="col-md-4" style="width: 27.2222222222222%;">
                 <h3><span>Popular Colleges</span></h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
-                <img src="images/content__images/pop_ind.jpg" alt="image">
+                <img src="{{ asset('assets/site/images/content__images/pop_ind.jpg')}}" alt="image">
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat utSuspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
                 <p><a href="#" role="button" class="btn btn-primary">Learn more</a></p>
 
@@ -73,11 +73,11 @@
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city }}</p>
                     </div>
-                    <div class="col-md-12" '="" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
+                    <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
                     <form style="margin-top: -19px;">
                     <button type="submit" name="wish" class="btn btn-secondary btn-sm" onclick="addToWish(this)" data-product_id="{{ $row->id }}">
-                                    <i class="icon anm anm-heart-l me-2"></i> <span>Wishlist</span>
-                                </button>                        <a class="btn btn-default btn-md" style="margin-top: 5px;margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
+                                    <i class="icon anm anm-heart-l me-2"></i> <span>Add to Wishlist</span>
+                                </button>                        <a class="btn btn-default btn-md" style="margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
                 </form>
                 <p>
 
