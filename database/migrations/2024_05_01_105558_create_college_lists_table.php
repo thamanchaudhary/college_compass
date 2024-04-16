@@ -32,8 +32,8 @@ class CreateCollegeListsTable extends Migration
 
             $table->unsignedBigInteger('university_id')->nullable();
             $table->foreign('university_id')->references('id')->on('universities')->onDelete('SET NULL')->onUpdate('CASCADE');
-            $table->unsignedBigInteger('program_id')->nullable();
-            $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL')->onUpdate('CASCADE');
+            $table->text('program_id')->nullable();
+            // $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

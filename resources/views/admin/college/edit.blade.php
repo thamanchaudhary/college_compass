@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('title', 'Add College')
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 @endsection
 @section('content')
 <div class="row">
@@ -118,12 +120,13 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Program</label> <br>
-                                <select name="program_id" id="program_id" class="form-control">
+                                <select name="program_id[]" id="program_id" class="form-control js-example-basic-multiple" multiple="multiple">
                                     @if(isset($data['program']))
                                     <option value=>--Choose Program--</option>
                                     @foreach($data['program'] as $row)
                                     <option value="{{ $row->id }}" @if($data['rows']->program_id == $row->id) selected @endif>{{ $row->name }}</option>
                                     @endforeach
+                                    <option value="{{ $row->id }}" {{ $data['rows']->program_id == explode(', ', $row->id) ? 'selected' : '' }}>{{ $row->name }} 
                                     @endif
                                 </select>
                                 @if($errors->has('email'))
@@ -225,6 +228,11 @@
 </form>
 @endsection
 @section('js')
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
 
 @endsection

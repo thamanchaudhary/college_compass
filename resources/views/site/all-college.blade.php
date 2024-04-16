@@ -20,7 +20,7 @@
                         <hr>
                         @if(isset($data['program']))
                         @foreach($data['program'] as $row)
-                        <input type="checkbox" id="{{ $row->name }}<" name="program_id" value="{{ $row->id }}" style="scale: 1.5;">
+                        <input type="checkbox" id="{{ $row->name }}<" name="program_id[]" value="{{ $row->id }}" style="scale: 1.5;">
                         <label for="vehicle1">{{ $row->name }}</label><br>
                         <br>
                         @endforeach

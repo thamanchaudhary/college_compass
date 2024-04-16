@@ -68,16 +68,43 @@ class SiteController extends DM_BaseController
 
     public function search(Request $request)
     {
-        $program = $request->program_id;
+        //Multilevel Search
+        $program = $request->program;
+        if(isset($program['0']) && $program['0'] != '') {
+            $data['rows'] = CollegeList::where('program_id', $program['0'])
+                ->orderBy('id', 'desc')
+                ->get();
+        }else if(isset($program['1']) && $program['1'] != '') {
+            $data['rows'] = CollegeList::where('program_id', $program['1'])
+                ->orderBy('id', 'desc')
+                ->get();
+        }else if(isset($program['2']) && $program['2'] != '') {
+            $data['rows'] = CollegeList::where('program_id', $program['2'])
+                ->orderBy('id', 'desc')
+                ->get();
+        }else if(isset($program['3']) && $program['3'] != '') {
+            $data['rows'] = CollegeList::where('program_id', $program['3'])
+                ->orderBy('id', 'desc')
+                ->get();
+        }else if(isset($program['4']) && $program['4'] != '') {
+            $data['rows'] = CollegeList::where('program_id', $program['4'])
+                ->orderBy('id', 'desc')
+                ->get();
+        }
+        else {
+            // return null;
+            return redirect()->back()->with('error', 'Please Select Program');
+        }
+
         $city = $request->city;
         $university_id = $request->university_id;
         $examp_required = $request->examp_required;
 
-        $data['rows'] = CollegeList::where('program_id', 'LIKE', '%' . $program . '%')
-            ->where('city', 'LIKE', '%' . $city . '%')
+        $data['rows'] = CollegeList::where('city', 'LIKE', '%' . $city . '%')
             ->where('university_id', 'LIKE', '%' . $university_id . '%')
             ->orderBy('id', 'desc')
             ->get();
+
 
         // Searching Data
         // dd($data['rows']);

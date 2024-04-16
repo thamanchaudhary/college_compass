@@ -74,9 +74,6 @@
                                         @else
                                         <p>Data Not Found' s !</p>
                                         @endif
-
-
-
                                     </div>
                                 </div>
                             </div> <br>

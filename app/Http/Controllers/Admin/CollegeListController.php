@@ -37,9 +37,7 @@ class CollegeListController extends DM_BaseController
         return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
-    {
-        dd($request->all());
-        
+    {        
         $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
@@ -53,7 +51,10 @@ class CollegeListController extends DM_BaseController
         $model->degree                = $request->degree;
         $model->description           = $request->description;
         $model->university_id         = $request->university_id;
-        $model->program_id            = $request->program_id;
+        // Multiple Program Store
+        $model->program_id            = implode(',', $request->program_id);
+
+
         $success                      = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {
@@ -97,7 +98,8 @@ class CollegeListController extends DM_BaseController
         $model->degree                 = $request->degree;
         $model->description            = $request->description;
         $model->university_id         = $request->university_id;
-        $model->program_id            = $request->program_id;
+        // Multiple Program Store
+        $model->program_id            = implode(',', $request->program_id);
         $success                       = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {
