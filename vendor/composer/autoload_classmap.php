@@ -68,6 +68,7 @@ return array(
     'App\\Models\\University' => $baseDir . '/app/Models/University.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\UserReport' => $baseDir . '/app/Models/UserReport.php',
+    'App\\Models\\Wishlist' => $baseDir . '/app/Models/Wishlist.php',
     'App\\Notifications\\NewUSerNotification' => $baseDir . '/app/Notifications/NewUSerNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

@@ -681,6 +681,7 @@ class ComposerStaticInit3ade408bad882b266acb08f44843c333
         'App\\Models\\University' => __DIR__ . '/../..' . '/app/Models/University.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserReport' => __DIR__ . '/../..' . '/app/Models/UserReport.php',
+        'App\\Models\\Wishlist' => __DIR__ . '/../..' . '/app/Models/Wishlist.php',
         'App\\Notifications\\NewUSerNotification' => __DIR__ . '/../..' . '/app/Notifications/NewUSerNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

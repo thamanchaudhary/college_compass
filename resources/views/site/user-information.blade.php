@@ -1,6 +1,13 @@
 @extends('site.layouts.app')
 @section('title')
 @endsection
+@section('css')
+<style>
+    .active {
+        background-color: #008B8B !important;
+    }
+</style>
+@endsection
 
 @section('content')
 <section class="main__middle__container">
@@ -12,11 +19,11 @@
                     <div class="sidebar content-box" style="display: block;background-color:aliceblue">
                         <ul class="nav" style="text-align: -webkit-left;">
                             <!-- Main menu -->
-                            <li class="current"><a href="{{ route('user.detail-information')}}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                            <li><a href="profile_details.php"><i class="glyphicon glyphicon-pencil"></i> Profile</a></li>
-                            <li><a href="my_wishlist.php"><i class="glyphicon glyphicon-list"></i>My Wish List</a></li>
+                            <li class="current"><a href="{{ route('user.detail-information')}}" class="{{ ($_panel == 'Dashboard') ? 'active' : '' }}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                            <li><a href="{{route('user.ShowInformation')}}"><i class="glyphicon glyphicon-pencil"></i> Profile</a></li>
+                            <li><a href="{{route('user.ShowWishlist')}}"><i class="glyphicon glyphicon-list"></i>My Wish List</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-stats"></i>My Careers</a></li>
-                            <li><a href="recommended_list.php"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>                            
+                            <li><a href="recommended_list.php"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
                             <li class="nav-item"><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">Log Out</a> </li>
                             <form action="{{ route('logout')}}" method="post" id="logout-form" class="d-none">
                                 @csrf
@@ -27,7 +34,7 @@
                 </div>
                 <div class="col-md-10" style="width:70%">
                     <div class="row" style="padding:0px;">
-                        <div class="col-md-5" >
+                        <div class="col-md-5">
                             <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
@@ -49,12 +56,12 @@
                                     </div>
                                 </div>
                             </div> <br>
-                            
+
                         </div>
-                        <div class="col-md-1" >
-                           
-                        </div> 
-                        <div class="col-md-5" >
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-5">
                             <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
@@ -76,11 +83,11 @@
                                     </div>
                                 </div>
                             </div> <br>
-                            
+
                         </div>
                     </div>
                     <div class="row" style="padding:0px;">
-                        <div class="col-md-5" >
+                        <div class="col-md-5">
                             <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
@@ -102,12 +109,12 @@
                                     </div>
                                 </div>
                             </div> <br>
-                            
+
                         </div>
-                        <div class="col-md-1" >
-                           
-                        </div> 
-                        <div class="col-md-5" >
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-5">
                             <div class="row" style="display: block;background-color:aliceblue;padding:0px;">
                                 <div class="col-md-12">
                                     <div class="content-box-header">
@@ -129,7 +136,7 @@
                                     </div>
                                 </div>
                             </div> <br>
-                            
+
                         </div>
                     </div>
                 </div>

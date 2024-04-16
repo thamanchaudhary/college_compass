@@ -31,7 +31,27 @@ class DashboardController extends DM_BaseController
     }
     public function DetailInformation()
     {
+        $this->panel = 'Dashboard';
         $data['user'] = User::where('id', Auth::user()->id)->first();
         return view(parent::loadView($this->view_path . '.user-information'), compact('data'));
+    }
+    // SHow Information
+    public function ShowInformation()
+    {
+        $this->panel = 'Show Information';
+        $data['user'] = User::where('id', Auth::user()->id)->first();
+        return view(parent::loadView($this->view_path . '.user-information-show'), compact('data'));
+    }
+    // Show Wishlist
+    public function ShowWishlist()
+    {
+        //show wishlist
+        $this->panel = 'Show Wishlist';
+        $data['rows'] = DB::table('wishlists')
+            ->join('college_lists', 'college_lists.id', '=', 'wishlists.college_id')
+            ->select('college_lists.*', 'wishlists.id as wishlist_id')
+            ->where('wishlists.user_id', Auth::user()->id)
+            ->get();
+        return view(parent::loadView($this->view_path . '.user-wishlist-show'), compact('data'));
     }
 }

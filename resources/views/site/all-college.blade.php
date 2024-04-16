@@ -74,66 +74,31 @@
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city }}</p>
                     </div>
                     <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
-                    <form style="margin-top: -19px;">
-                    <button type="submit" name="wish" class="btn btn-secondary btn-sm" onclick="addToWish(this)" data-product_id="{{ $row->id }}">
-                                    <i class="icon anm anm-heart-l me-2"></i> <span>Add to Wishlist</span>
-                                </button>                        <a class="btn btn-default btn-md" style="margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
-                </form>
-                <p>
+                        <form style="margin-top: -19px;">
+                            <input type="hidden" name="college_id" value="{{ $row->id }}">
+                            <button type="button" name="wish" class="btn btn-secondary btn-sm" onclick="addToWish(this)" data-college_id="{{ $row->id }}">
+                                <i class="icon anm anm-heart-l me-2"></i> <span>Add to Wishlist</span>
+                            </button> <a class="btn btn-default btn-md" style="margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
+                        </form>
+                        <p>
 
-                </p>
-                </div>
+                        </p>
+                    </div>
                 </div>
                 @endforeach
                 @else
                 <p>Data Not Found' s !</p>
-                        @endif
-
-
-
-
-
+                @endif
             </section>
         </div>
     </div>
     </div>
 
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 
-<script>
-    function addToWish(elem) {
-        
-        var product_id = $(elem).data('product_id');
-        alert(product_id);
-        $.ajax({
-            url: "{{ route('user.wishlist.store') }}",
-            type: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                product_id: product_id,
-            },
-            success: function(response) {
-                if (typeof(response) != 'object') {
-                    response = $.parseJSON(response);
-                }
-                if (response.status) {
-                    swal({
-                            title: "Success",
-                            text: response.msg,
-                            icon: "success",
-                            buttons: true,
-                            dangerMode: false,
-                        })
-                        .then(function() {
-                            document.location.href = document.location.href;
-                        });
-                } else {
-                    swal(response.msg, "error");
-                }
-            }
-        });
-    }
-</script>
+
+
+@endsection
+@section('js')
+
 @endsection
