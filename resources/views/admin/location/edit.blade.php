@@ -13,13 +13,13 @@
         </nav>
     </div>
 </div>
-<form action="{{ route($_base_route.'.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{ route($_base_route.'.update', $data['rows']->id )}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-lg-8">
             <section class="card">
                 <header class="card-header" style="font-weight: bold;">
-                    {{$_panel }} Add
+                    {{$_panel }} Edit
                 </header>
                 <div class="card-body">
                     @csrf
@@ -27,14 +27,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="name">Name</label> <br>
-                                <input class="form-control rounded" type="text" id="name" value="{{ old('name') }}" name="name" placeholder="Name">
+                                <input class="form-control rounded" type="text" id="name" value="@if(isset($data['rows']->name)) {{ $data['rows']->name }} @else {{ old('name') }} @endif" name="name" placeholder="Name">
                                 @if($errors->has('name'))
                                 <p id="name-error" class="help-block" for="name"><span>{{ $errors->first('name') }}</span></p>
                                 @endif
                             </div>
                         </div>
 
-                       
                     </div>
                 </div>
             </section>

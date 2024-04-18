@@ -6,6 +6,9 @@ Route::get('/my-account',            [App\Http\Controllers\User\DashboardControl
 Route::get('/my-account/show',       [App\Http\Controllers\User\DashboardController::class, 'ShowInformation'])->name('ShowInformation');
 // User WishList Show
 Route::get('/my-account/wishlist',    [App\Http\Controllers\User\DashboardController::class, 'ShowWishlist'])->name('ShowWishlist');
+
+// User Recomamded College with Program and Location
+Route::get('/my-account/recomamded-college', [App\Http\Controllers\User\DashboardController::class, 'RecommendedCollege'])->name('RecommendedCollege');
 /**
  * Route for Wishlist
  

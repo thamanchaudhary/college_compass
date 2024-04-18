@@ -37,9 +37,7 @@
                 @else
                 <a href="{{route('login')}}"><b>User Log In</b></a>
                 <a href='{{ route('register')}}'><b>Register</b></a>
-
                 @endauth
-
             </div>
         </div>
     </header>

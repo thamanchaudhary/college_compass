@@ -20,7 +20,21 @@ class User extends Authenticatable
     {
         return $this->orderBy('id', 'DESC')->paginate(10);
     }
-
+    // get User Intrested Program
+    public function IntrestedProgram()
+    {
+        return $this->belongsTo('App\Models\Program', 'program_id', 'id');
+    }
+    // get User Intrested Location
+    public function IntrestedLocation()
+    {
+        return $this->belongsTo('App\Models\Location', 'location_id', 'id');
+    }
+     //COllege Location
+     public function collegeLocation()
+     {
+         return $this->belongsTo(Location::class, 'location_id');
+     }
    
     public function storeData(Request $request, $name, $username, $email, $mobile, $password, $avatar, $role)
     {
@@ -53,7 +67,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'last_login_at', 'last_login_ip'
+        'last_login_at', 'last_login_ip','program_id', 'location_id'
     ];
 
     /**

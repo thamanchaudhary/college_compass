@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title></title>
+    <title>@yield('title')</title>
     <!-- GLOBAL MAINLY STYLES-->
     <!--external css-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -49,19 +49,5 @@
     @yield('js')
     @include('admin.section.flash-message')
 </body>
-<script>
-    // Define an array of phrases to display in the title
-    // var phrases = [@yield('title'), "test"];
-    var phrases = ["@yield('title')", "@if(isset($all_view['setting']->site_name)) {{ $all_view['setting']->site_name }} @endif"];
-    var currentPhraseIndex = 0;
-    // Function to update the title periodically
-    function updateTitle() {
-        document.title = phrases[currentPhraseIndex];
-        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        setTimeout(updateTitle, 2000); // Change the title every 2 seconds (2000 milliseconds)
-    }
-    // Call the function to start the title scrolling
-    updateTitle();
-</script>
 
 </html>

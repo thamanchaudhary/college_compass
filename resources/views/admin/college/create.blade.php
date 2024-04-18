@@ -46,17 +46,17 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="city">City</label> <br>
-                                <select id="city" name="city" class="form-control">
-                                    <option value="all">All</option>
-                                    <option value="kathmandu">Kathmandu</option>
-                                    <option value="lalitpur">Lalitpur</option>
-                                    <option value="bhaktapur">Bhaktapur</option>
-                                    <option value="pokhara">Pokhara</option>
-                                    <option value="hetauda">Hetauda</option>
+                                <label for="location_id">City</label> <br>
+                                <select id="location_id" name="location_id" class="form-control">
+                                    @if(isset($data['location']))
+                                    <option value=>--Choose Location--</option>
+                                    @foreach($data['location'] as $row)
+                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                    @endif
                                 </select>
-                                @if($errors->has('city'))
-                                <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('city') }}</span></p>
+                                @if($errors->has('location_id'))
+                                <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('location_id') }}</span></p>
                                 @endif
                             </div>
                         </div>

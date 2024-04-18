@@ -17,7 +17,6 @@ class CreateCollegeListsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('address')->nullable();
-            $table->string('city')->nullable();
             $table->string('website')->nullable();
             $table->string('contact')->nullable();
             $table->string('email')->nullable();
@@ -29,8 +28,9 @@ class CreateCollegeListsTable extends Migration
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
             $table->string('image_4')->nullable();
-
+            $table->unsignedBigInteger('location_id')->nullable();
             $table->unsignedBigInteger('university_id')->nullable();
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('SET NULL')->onUpdate('CASCADE');
             $table->foreign('university_id')->references('id')->on('universities')->onDelete('SET NULL')->onUpdate('CASCADE');
             $table->text('program_id')->nullable();
             // $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL')->onUpdate('CASCADE');

@@ -21,8 +21,7 @@
                             <li class="current"><a href="{{ route('user.detail-information')}}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                             <li><a href="{{route('user.ShowInformation')}}" class="{{ ($_panel == 'Show Information') ? 'active' : '' }}"><i class="glyphicon glyphicon-pencil"></i> Profile</a></li>
                             <li><a href="{{route('user.ShowWishlist')}}"><i class="glyphicon glyphicon-list"></i>My Wish List</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-stats"></i>My Careers</a></li>
-                            <li><a href="recommended_list.php"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
+                            <li><a href="{{ route('user.RecommendedCollege')}}"  class="{{ ($_panel == 'Recomamded College') ? 'active' : '' }}"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
                             <li class="nav-item"><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">Log Out</a> </li>
                             <form action="{{ route('logout')}}" method="post" id="logout-form" class="d-none">
                                 @csrf
@@ -47,8 +46,10 @@
                                                 <p>Email : {{ $data['user']->email  }}</p>
                                                 <p>User Name : {{ $data['user']->username }}</p>
                                                 <p>Created At : {{ $data['user']->created_at }}</p>
-                                                <p>Carrers Option</p>:
-
+                                                <!-- Show Intrested Program -->
+                                                <p>Intrested Program :  @if(isset($data['user']->IntrestedProgram)) {{ $data['user']->IntrestedProgram->name  }} @endif </p>
+                                                <!-- SHow intrested Location -->
+                                                <p>Intrested Location : @if(isset($data['user']->IntrestedLocation)) {{ $data['user']->IntrestedLocation->name  }} @endif </p>
                                             </div>
 
                                         </div>

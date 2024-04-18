@@ -53,9 +53,10 @@
                                             </div>
                                             <div class="col-md-8" style="padding-left: 0px;">
                                                 <h3 style="font-size: 20px;">{{ $row->name }}</h3>
-                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->University)) {{ $row->University->name  }} @endif</p>
+                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">Program</b> : {{$row->program_name }}</p>
+                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->university_name)) {{ $row->university_name  }} @endif</p>
                                                 <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
-                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city }}</p>
+                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->location_name }}</p>
                                             </div>
 
                                             <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
@@ -86,36 +87,4 @@
         </div>
     </div>
 </section>
-@endsection
-@section('js')
-<script>
-    jq(document).ready(function() {
-        jq('.delete-wishlist').click(function() {
-            var id = jq(this).data('id');
-            jq.ajax({
-                url: "{{ route('user.wishlist.destroy') }}",
-                type: 'DELETE',
-                data: {
-                    "id": id,
-                    _token: "{{ csrf_token() }}",
-                },
-                success: function(response) {
-                    if (typeof(response) != 'object') {
-                        response = $.parseJSON(response);
-                    }
-                    if (response.status) {
-                        alert(response.msg);
-                        location.reload();
-                           
-                    } else {
-                        alert(response.msg);
-                        
-                    }
-                }
-
-                
-            });
-        });
-    });
-</script>
 @endsection

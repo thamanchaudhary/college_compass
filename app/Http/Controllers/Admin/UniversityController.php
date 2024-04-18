@@ -37,7 +37,6 @@ class UniversityController extends DM_BaseController
         $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
-        $model->status                = $request->status;
         $success                      = $model->save();
         if ($success) {
             session()->flash('success_message', $this->panel . '  Successfully Added !');
@@ -56,7 +55,6 @@ class UniversityController extends DM_BaseController
         $request->validate($this->model->getRules());
         $model                         = $this->model::where('id', '=', $id)->first();
         $model->name                   = $request->name;
-        $model->status                 = $request->status;
         $success                       = $model->save();
         if ($success) {
             session()->flash('success_message', $this->panel . '  Successfully Updated !');

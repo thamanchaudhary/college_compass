@@ -16,7 +16,6 @@ class CreateUniversitiesTable extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }

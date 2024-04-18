@@ -34,15 +34,16 @@ class CollegeListController extends DM_BaseController
     {
         $data['university'] = $this->model->getUniversity();
         $data['program'] = $this->model->getProgram();
+        $data['location'] = $this->model->getLocation();
         return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
-    {        
+    {
         $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
         $model->address               = $request->address;
-        $model->city                  = $request->city;
+        $model->location_id           = $request->location_id;
         $model->website               = $request->website;
         $model->contact               = $request->contact;
         $model->email                 = $request->email;
@@ -89,7 +90,7 @@ class CollegeListController extends DM_BaseController
         $model                         = $this->model::where('id', '=', $id)->first();
         $model->name                   = $request->name;
         $model->address                = $request->address;
-        $model->city                   = $request->city;
+        $model->location_id            = $request->location_id;
         $model->website                = $request->website;
         $model->contact                = $request->contact;
         $model->email                  = $request->email;

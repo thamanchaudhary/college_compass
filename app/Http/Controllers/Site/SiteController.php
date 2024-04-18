@@ -10,6 +10,7 @@ use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Clients;
 use App\Models\CollegeList;
+use App\Models\Location;
 use App\Models\Product;
 use App\Models\Program;
 use App\Models\Setting;
@@ -18,6 +19,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 class SiteController extends DM_BaseController
 {
@@ -28,10 +30,14 @@ class SiteController extends DM_BaseController
     protected $table;
     protected $contact_email;
     protected $dm_post;
+    protected $user;
+    protected $location;
 
-    public function __construct(Request $request, DM_Post $dm_post, Setting $setting)
+    public function __construct(Request $request, DM_Post $dm_post, Setting $setting, User $user,Location $location)
     {
         $this->dm_post = $dm_post;
+        $this->user = $user;
+        $this->location = $location;
         $this->contact_email = $setting::pluck('site_email')->first();
     }
 

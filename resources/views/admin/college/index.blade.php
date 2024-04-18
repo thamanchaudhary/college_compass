@@ -43,7 +43,9 @@
                                 <td>{{$loop->iteration}}.</td>
                                 <td>{{$row->name}}</td>
                                 <td>{{$row->address}}</td>
-                                <td>{{$row->city}}</td>
+                                <td>
+                                    @if(isset($row->collegeLocation)) {{ $row->collegeLocation->name  }} @endif
+                                </td>
                                 <td>{{$row->website}}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |

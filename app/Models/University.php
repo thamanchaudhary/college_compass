@@ -11,14 +11,12 @@ class University extends Model
 
     protected $fillable = [
         'name',
-        'status',
     ];
 
     public function getRules()
     {
         return [
             'name' => 'required|string|max:225|min:2',
-            'status' => 'required|boolean',
         ];
     }
 

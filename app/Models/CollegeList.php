@@ -12,7 +12,7 @@ class CollegeList extends Model
     protected $fillable = [
         'name',
         'address',
-        'city',
+        'location_id',
         'website',
         'contact',
         'email',
@@ -28,7 +28,7 @@ class CollegeList extends Model
         return [
             'name' => 'required|string|max:225|min:2',
             'address' => 'required|string|max:225|min:2',
-            'city' => 'required|string|max:225|min:2',
+            'location_id' => 'required|string|max:225',
             'website' => 'required|string|max:225|min:2',
             'contact' => 'required|string|max:225|min:2',
             'email' => 'required|string|max:225|min:2',
@@ -43,7 +43,11 @@ class CollegeList extends Model
     {
         return $this->paginate(10);
     }
-
+    //COllege Location
+    public function collegeLocation()
+    {
+        return $this->belongsTo(Location::class, 'location_id');
+    }
     public function getUniversity()
     {
         return University::get();
@@ -52,6 +56,10 @@ class CollegeList extends Model
     public function getProgram()
     {
         return Program::get();
+    }
+    public function getLocation()
+    {
+        return Location::get();
     }
 
     public function University()

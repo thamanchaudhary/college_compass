@@ -23,13 +23,17 @@ class CreateUsersTable extends Migration
             $table->string('username')->nullable();
             $table->string('mobile')->nullable();
             $table->integer('forgotten_password_time')->nullable();
-            $table->enum('role', ['admin','user'])->default('user');
+            $table->enum('role', ['admin', 'user'])->default('user');
             $table->boolean('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->timestamp('last_seen')->nullable();
             $table->dateTime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
+            $table->unsignedBigInteger('program_id')->nullable();
+            $table->unsignedBigInteger('location_id')->nullable();
+            $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL')->onUpdate('CASCADE');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('SET NULL')->onUpdate('CASCADE');
         });
     }
 

@@ -2,6 +2,8 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Models\Location;
+use App\Models\Program;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -18,7 +20,9 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $data['program'] = Program::get();
+        $data['location'] = Location::get();
+        return view('auth.register', compact('data'));
     }
 
     /**
@@ -29,7 +33,7 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
-    //    dd('here');
+        //    dd('here');
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
 
@@ -38,10 +42,10 @@ trait RegistersUsers
         if ($response = $this->registered($request, $user)) {
             return $response;
         }
-        session()->flash('alert-success', 'Welcome, '. Auth::user()->name .'! You are Logged In.');
+        session()->flash('alert-success', 'Welcome, ' . Auth::user()->name . '! You are Logged In.');
         return $request->wantsJson()
-                    ? new JsonResponse([], 201)
-                    : redirect($this->redirectPath());
+            ? new JsonResponse([], 201)
+            : redirect($this->redirectPath());
     }
 
     /**

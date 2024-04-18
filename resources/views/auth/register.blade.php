@@ -1,5 +1,5 @@
 @extends('layouts.login')
-@section('title', 'नयाँ प्रयोगकर्ता')
+@section('title', 'New User')
 @section('content')
 <div class="content">
     <div class="brand">
@@ -20,6 +20,35 @@
             <small id="name-error" class="help-block " style="color: red;" for="email"><span>{{ $errors->first('email') }}</span></small>
             @endif
         </div>
+        <!-- Program Select Option -->
+        <div class="form-group">
+            <select class="form-control" name="program_id">
+                <option value="">Select Program</option>
+                @if(isset($all_view['program']))
+                @foreach($all_view['program'] as $row)
+                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                @endforeach
+                @endif
+            </select>
+            @if($errors->has('program_id'))
+            <small id="name-error" class="help-block " style="color: red;" for="program_id"><span>{{ $errors->first('program_id') }}</span></small>
+            @endif
+        </div>
+        <!-- Location Select Option -->
+        <div class="form-group">
+            <select class="form-control" name="location_id">
+                <option value="">Select Location</option>
+                @if(isset($data['location']))
+                @foreach($data['location'] as $row)
+                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                @endforeach
+                @endif
+            </select>
+            @if($errors->has('location_id'))
+            <small id="name-error" class="help-block " style="color: red;" for="location_id"><span>{{ $errors->first('location_id') }}</span></small>
+            @endif
+        </div>
+
         <div class="form-group">
             <input class="form-control" id="password" type="password" name="password" placeholder="Password">
             @if($errors->has('password'))
@@ -32,16 +61,11 @@
             <p id="name-error" class="help-block " for="name"><span>{{ $errors->first('password_confirmation') }}</span></p>
             @endif
         </div>
-        <div class="form-group d-flex justify-content-between" style="font-size: 14px;">
-            <label class="ui-checkbox ui-checkbox-info">
-                <input type="checkbox" style="scale: 1.5;" name="remember" id="customCheck" {{ old('remember') ? 'checked' : '' }}>
-                <span class="input-span" for="customCheck"></span>&nbsp;Remember</label>
-           
-        </div>
+       
         <div class="form-group">
             <button class="btn btn-info btn-block" type="submit">Register</button>
         </div>
-      
+
     </form>
 </div>
 

@@ -34,10 +34,8 @@ class LocationController extends DM_BaseController
     }
     public function store(Request $request)
     {
-        $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
-        $model->status                = $request->status;
         $success                      = $model->save();
         if ($success) {
             session()->flash('success_message', $this->panel . '  Successfully Added !');
@@ -53,10 +51,8 @@ class LocationController extends DM_BaseController
     }
     public function update(Request $request, $id)
     {
-        $request->validate($this->model->getRules());
         $model                         = $this->model::where('id', '=', $id)->first();
         $model->name                   = $request->name;
-        $model->status                 = $request->status;
         $success                       = $model->save();
         if ($success) {
             session()->flash('success_message', $this->panel . '  Successfully Updated !');

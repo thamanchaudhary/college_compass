@@ -22,8 +22,7 @@
                             <li class="current"><a href="{{ route('user.detail-information')}}" class="{{ ($_panel == 'Dashboard') ? 'active' : '' }}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                             <li><a href="{{route('user.ShowInformation')}}"><i class="glyphicon glyphicon-pencil"></i> Profile</a></li>
                             <li><a href="{{route('user.ShowWishlist')}}"><i class="glyphicon glyphicon-list"></i>My Wish List</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-stats"></i>My Careers</a></li>
-                            <li><a href="recommended_list.php"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
+                            <li><a href="{{ route('user.RecommendedCollege')}}"  class="{{ ($_panel == 'Recomamded College') ? 'active' : '' }}"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
                             <li class="nav-item"><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">Log Out</a> </li>
                             <form action="{{ route('logout')}}" method="post" id="logout-form" class="d-none">
                                 @csrf
