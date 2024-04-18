@@ -36,7 +36,7 @@ class User extends Authenticatable
          return $this->belongsTo(Location::class, 'location_id');
      }
    
-    public function storeData(Request $request, $name, $username, $email, $mobile, $password, $avatar, $role)
+    public function storeData(Request $request, $name, $username, $email, $mobile, $password, $avatar )
     {
         //dd($name, $username, $email, $mobile, $password, $avatar );
         try {
@@ -45,7 +45,7 @@ class User extends Authenticatable
             $data->username                = $username;
             $data->email                   = $email;
             $data->password                = bcrypt($password);
-            // $data->role                    = $role;
+
             $data->status                  = 1;
             // if ($request->hasFile('avatar')) {
             //     $data->image = parent::uploadImage($request, $this->folder_path_image, $this->prefix_path_image, 'image', '', '');
@@ -67,7 +67,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'last_login_at', 'last_login_ip','program_id', 'location_id'
+        'last_login_at', 'last_login_ip','program_id', 'city_id', 'address_id'
     ];
 
     /**

@@ -57,9 +57,9 @@ class CollegeList extends Model
     {
         return Program::get();
     }
-    public function getLocation()
+    public function getCity()
     {
-        return Location::get();
+        return City::get();
     }
 
     public function University()

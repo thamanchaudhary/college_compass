@@ -50,10 +50,10 @@ class DropdownController extends Controller
         return response()->json($data);
     }
 
-    function getAnimalList(Request $request)
+    function getAddress(Request $request)
     {
-        $data['animal'] = DB::table('animals')
-            ->where('animal_id', '=', $request->animal_cat)
+        $data['address'] = DB::table('addresses')
+            ->where('city_id', '=', $request->city_id)
             ->get();
         return response()->json($data);
     }

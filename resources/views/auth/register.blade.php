@@ -5,7 +5,7 @@
     <div class="brand">
         <a class="link" href="{{route('login')}}" style="font-size: 25px;">@if(isset($all_view['setting']->site_name)) {{ $all_view['setting']->site_name }} @endif</a>
     </div>
-    <form id="register-form" action="{{ route('register') }}" method="POST">
+    <form method="POST" action="{{ route('signup-process') }}">
         @csrf
         <h2 class="login-title">New Register</h2>
         <div class="form-group">
@@ -36,16 +36,23 @@
         </div>
         <!-- Location Select Option -->
         <div class="form-group">
-            <select class="form-control" name="location_id">
-                <option value="">Select Location</option>
-                @if(isset($data['location']))
-                @foreach($data['location'] as $row)
+            <select class="form-control" name="city_id" id="city_id">
+                <option value="">Select City</option>
+                @if(isset($data['city']))
+                @foreach($data['city'] as $row)
                 <option value="{{ $row->id }}">{{ $row->name }}</option>
                 @endforeach
                 @endif
+            </select> @if($errors->has('city'))
+            <small id="name-error" class="help-block " style="color: red;" for="city"><span>{{ $errors->first('city') }}</span></small>
+            @endif
+        </div>
+        <div class="form-group">
+            <select name="address_id" id="address_id" class="form-control">
+                <option value=>Choose Address</option>
             </select>
-            @if($errors->has('location_id'))
-            <small id="name-error" class="help-block " style="color: red;" for="location_id"><span>{{ $errors->first('location_id') }}</span></small>
+            @if($errors->has('address_id'))
+            <p id="name-error" class="help-block " for="address_id"><span>{{ $errors->first('address_id') }}</span></p>
             @endif
         </div>
 
@@ -61,7 +68,7 @@
             <p id="name-error" class="help-block " for="name"><span>{{ $errors->first('password_confirmation') }}</span></p>
             @endif
         </div>
-       
+
         <div class="form-group">
             <button class="btn btn-info btn-block" type="submit">Register</button>
         </div>
@@ -69,4 +76,35 @@
     </form>
 </div>
 
+@endsection
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        //Get  Location 
+        $('#city_id').change(function() {
+            var idCity = this.value;
+            $("#address_id").html('');
+            var url = "{{route('getAddress')}}";
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    city_id: idCity,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#address_id').append('<option value="">-- Choose Sub Category --</option>');
+                    $.each(result.address, function(key, value) {
+                        $("#address_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+
+
+    });
+</script>
 @endsection

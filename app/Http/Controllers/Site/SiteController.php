@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Career;
+use App\Models\City;
 use App\Models\Clients;
 use App\Models\CollegeList;
 use App\Models\Location;
@@ -31,13 +32,13 @@ class SiteController extends DM_BaseController
     protected $contact_email;
     protected $dm_post;
     protected $user;
-    protected $location;
+    protected $city;
 
-    public function __construct(Request $request, DM_Post $dm_post, Setting $setting, User $user,Location $location)
+    public function __construct(Request $request, DM_Post $dm_post, Setting $setting, User $user,City $city)
     {
         $this->dm_post = $dm_post;
         $this->user = $user;
-        $this->location = $location;
+        $this->city = $city;
         $this->contact_email = $setting::pluck('site_email')->first();
     }
 

@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Location;
+use App\Models\City;
 use Illuminate\Http\Request;
 
-class LocationController extends DM_BaseController
+class CityController extends DM_BaseController
 {
-    protected $panel = 'Location';
-    protected $base_route = 'admin.location';
-    protected $view_path = 'admin.location';
+    protected $panel = 'City';
+    protected $base_route = 'admin.city';
+    protected $view_path = 'admin.city';
     protected $model;
     protected $table;
     protected $folder_path_image;
     protected $folder_path_file;
-    protected $folder = 'university';
-    protected $prefix_path_image = '/upload_file/location/';
-    public function __construct(Location $model)
+    protected $folder = 'city';
+    protected $prefix_path_image = '/upload_file/city/';
+    public function __construct(City $model)
     {
         $this->model = $model;
         $this->folder_path_image  = getcwd() . DIRECTORY_SEPARATOR . 'upload_file' . DIRECTORY_SEPARATOR . $this->folder . DIRECTORY_SEPARATOR;

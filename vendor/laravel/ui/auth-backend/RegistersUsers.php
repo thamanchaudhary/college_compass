@@ -2,6 +2,7 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Models\City;
 use App\Models\Location;
 use App\Models\Program;
 use Illuminate\Auth\Events\Registered;
@@ -21,7 +22,7 @@ trait RegistersUsers
     public function showRegistrationForm()
     {
         $data['program'] = Program::get();
-        $data['location'] = Location::get();
+        $data['city'] = City::get();
         return view('auth.register', compact('data'));
     }
 

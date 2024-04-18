@@ -7,7 +7,8 @@
 <div class="container">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <div class="row">
-            <a href="{{route( $_base_route.'.create' )}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus fa-sm text-white-50"></i> Add New</a>&nbsp;
+        <a href="{{route( 'admin.city.index')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-long-arrow-left fa-sm text-white-50"></i> Back</a>&nbsp;
+            <a href="{{route( $_base_route.'.create' )}}" class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm"><i class="fa fa-plus fa-sm text-white-50"></i> Add New</a>&nbsp;
         </div>
     </div>
 </div>
@@ -29,7 +30,8 @@
                         <thead>
                             <tr>
                                 <th>S.N</th>
-                                <th>Title</th>
+                                <th>City</th>
+                                <th>Address</th>
                                 <th class="hidden-phone">Sction</th>
                             </tr>
                         </thead>
@@ -38,6 +40,7 @@
                             @foreach($data['rows'] as $row)
                             <tr class="gradeX">
                                 <td>{{$loop->iteration}}.</td>
+                                <td>@if(isset($row->AddressCity)) {{ $row->AddressCity->name  }} @endif</td>
                                 <td>{{$row->name}}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |

@@ -11,7 +11,7 @@
             <li><a href="{{ URL::route('admin.program.index') }}" class="{{ ($_panel == 'Program') ? 'active' : '' }}"><span>{{__('Program List')}}</span></a></li>
             @endif
             @if(Route::has('admin.index'))
-            <li><a href="{{ URL::route('admin.location.index') }}" class="{{ ($_panel == 'Location') ? 'active' : '' }}"><span>{{__('College Location')}}</span></a></li>
+            <li><a href="{{ URL::route('admin.city.index') }}" class="{{ ($_panel == 'City' || $_panel == 'Address' ) ? 'active' : '' }}"><span>{{__('College City')}}</span></a></li>
             @endif
             @if(Route::has('admin.index'))
             <li><a href="{{ URL::route('admin.college.index') }}" class="{{ ($_panel == 'College') ? 'active' : '' }}"><span>{{__('College List')}}</span></a></li>

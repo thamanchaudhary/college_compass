@@ -43,6 +43,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+   
     /**
      * Get a validator for an incoming registration request.
      *
@@ -57,7 +58,8 @@ class RegisterController extends Controller
                 'name' => ['required', 'string', 'max:20', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'program_id' => ['required', 'integer'], // Add this line
-                'location_id' => ['required', 'integer', 'max:255'], // Add this line
+                'city_id' => ['required', 'integer', 'max:255'], // Add this line
+                'address_id' => ['required', 'integer', 'max:255'], // Add this line
                 'password' => ['required', 'string', 'min:4', 'confirmed'],
             ],
 
@@ -76,12 +78,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'program_id' => $data['program_id'], // Add this line
-            'location_id' => $data['location_id'], // Add this line
+            'address_id' => $data['address_id'], // Add this line
             // Default Role is 'user
             'password' => Hash::make($data['password']),
         ]);
     }
-
+    public function registered(Request $request, $user)
+    {
+        return redirect()->route('login')->with('status', 'Registration successful! Please log in.');
+    }
     public function redirectTo()
     {
 

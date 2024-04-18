@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Arr;
@@ -58,7 +57,7 @@ class UserController extends DM_BaseController
     public function store(Request $request)
     {
         // $request->validate($this->model->getRules(), $this->model->getMessage());
-        if ($this->model->storeData($request, $request->name, $request->username, $request->email, $request->mobile, $request->password, $request->avatar, $request->role)) {
+        if ($this->model->storeData($request, $request->name, $request->username, $request->email, $request->mobile, $request->password, $request->avatar, )) {
             session()->flash('alert-success', $this->panel . '  Successfully Added !');
         } else {
             session()->flash('alert-danger', $this->panel . '  can not be Added');
@@ -75,8 +74,6 @@ class UserController extends DM_BaseController
     public function edit($id)
     {
         $data['user'] = User::find($id);
-        $roles = Role::pluck('name', 'name')->all();
-        // $userRole = $user->roles->pluck('name', 'name')->all();
         return view(parent::loadView($this->view_path . '.edit'), compact('data'));
     }
 

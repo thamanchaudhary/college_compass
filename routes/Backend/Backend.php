@@ -17,14 +17,26 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
 });
 /** Main Setup Part
  */
-Route::group(['prefix' => 'location',                'as' => 'location.'], function () {
-    Route::get('/',                                    [App\Http\Controllers\Admin\LocationController::class, 'index'])->name('index');
-    Route::get('/create',                              [App\Http\Controllers\Admin\LocationController::class, 'create'])->name('create');
-    Route::post('',                                    [App\Http\Controllers\Admin\LocationController::class, 'store'])->name('store');
-    Route::get('/edit/{id}',                           [App\Http\Controllers\Admin\LocationController::class, 'edit'])->name('edit');
-    Route::post('/update/{id}',                        [App\Http\Controllers\Admin\LocationController::class, 'update'])->name('update');
-    Route::get('/{id}',                                [App\Http\Controllers\Admin\LocationController::class, 'destroy'])->name('destroy');
-    Route::get('/show/{id}',                           [App\Http\Controllers\Admin\LocationController::class, 'show'])->name('show');
+Route::group(['prefix' => 'city',                'as' => 'city.'], function () {
+    Route::get('/',                                    [App\Http\Controllers\Admin\CityController::class, 'index'])->name('index');
+    Route::get('/create',                              [App\Http\Controllers\Admin\CityController::class, 'create'])->name('create');
+    Route::post('',                                    [App\Http\Controllers\Admin\CityController::class, 'store'])->name('store');
+    Route::get('/edit/{id}',                           [App\Http\Controllers\Admin\CityController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}',                        [App\Http\Controllers\Admin\CityController::class, 'update'])->name('update');
+    Route::get('/{id}',                                [App\Http\Controllers\Admin\CityController::class, 'destroy'])->name('destroy');
+    Route::get('/show/{id}',                           [App\Http\Controllers\Admin\CityController::class, 'show'])->name('show');
+});
+
+/** Main Setup Part Location
+ */
+Route::group(['prefix' => 'address',                'as' => 'address.'], function () {
+    Route::get('/',                                    [App\Http\Controllers\Admin\AddressController::class, 'index'])->name('index');
+    Route::get('/create',                              [App\Http\Controllers\Admin\AddressController::class, 'create'])->name('create');
+    Route::post('',                                    [App\Http\Controllers\Admin\AddressController::class, 'store'])->name('store');
+    Route::get('/edit/{id}',                           [App\Http\Controllers\Admin\AddressController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}',                        [App\Http\Controllers\Admin\AddressController::class, 'update'])->name('update');
+    Route::get('/{id}',                                [App\Http\Controllers\Admin\AddressController::class, 'destroy'])->name('destroy');
+    Route::get('/show/{id}',                           [App\Http\Controllers\Admin\AddressController::class, 'show'])->name('show');
 });
 
 
@@ -71,17 +83,7 @@ Route::group(['prefix' => 'program',                     'as' => 'program.'], fu
 
 
 
-/**
- * Messages Routes
- */
-Route::group(['prefix' => 'message', 'as' => 'message.'], function () {
-    Route::get('/',                             [App\Http\Controllers\Admin\MessageController::class, 'index'])->name('index');
-    Route::get('create',                        [App\Http\Controllers\Admin\MessageController::class, 'create'])->name('create');
-    Route::post('',                             [App\Http\Controllers\Admin\MessageController::class, 'store'])->name('store');
-    Route::get('/edit/{id}',                    [App\Http\Controllers\Admin\MessageController::class, 'edit'])->name('edit');
-    Route::post('/update/{id}',                 [App\Http\Controllers\Admin\MessageController::class, 'update'])->name('update');
-    Route::get('/delete/{id}',                  [App\Http\Controllers\Admin\MessageController::class, 'delete'])->name('delete');
-});
+
 
 
 /**

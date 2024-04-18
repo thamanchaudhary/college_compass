@@ -34,7 +34,7 @@ class CollegeListController extends DM_BaseController
     {
         $data['university'] = $this->model->getUniversity();
         $data['program'] = $this->model->getProgram();
-        $data['location'] = $this->model->getLocation();
+        $data['city'] = $this->model->getCity();
         return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)

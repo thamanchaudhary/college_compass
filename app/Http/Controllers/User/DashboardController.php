@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Admin\DM_BaseController;
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\GeneralProfile;
 use App\Models\Location;
 use App\Models\University;
@@ -20,21 +21,20 @@ class DashboardController extends DM_BaseController
     protected $folder = 'user';
     protected $action = '';
     protected $model;
-    protected $location;
+    protected $city;
     protected $university;
 
-    public function __construct(User $model, Location $location, University $university)
+    public function __construct(User $model, City $city, University $university)
     {
         $this->model = $model;
-        $this->location = $location;
+        $this->city = $city;
         $this->university = $university;
         $this->middleware('auth');
     }
 
     public function index()
     {
-
-        return view(parent::loadView($this->view_path . '.index'));
+        return view(parent::loadView($this->view_path . '.user-information'));
     }
     public function DetailInformation()
     {
@@ -56,9 +56,11 @@ class DashboardController extends DM_BaseController
         $this->panel = 'Show Wishlist';
         $data['rows'] = DB::table('wishlists')
             ->join('college_lists', 'college_lists.id', '=', 'wishlists.college_id')
-            ->select('college_lists.*', 'wishlists.id as wishlist_id')
+            ->join('locations', 'locations.id', '=', 'college_lists.location_id')
+            ->select('college_lists.*', 'wishlists.id as wishlist_id', 'locations.name as location_name')
             ->where('wishlists.user_id', Auth::user()->id)
             ->get();
+        // dd($data['rows']);
         return view(parent::loadView($this->view_path . '.user-wishlist-show'), compact('data'));
     }
 

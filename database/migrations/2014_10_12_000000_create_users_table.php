@@ -31,9 +31,11 @@ class CreateUsersTable extends Migration
             $table->dateTime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->unsignedBigInteger('program_id')->nullable();
-            $table->unsignedBigInteger('location_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('program_id')->references('id')->on('programs')->onDelete('SET NULL')->onUpdate('CASCADE');
-            $table->foreign('location_id')->references('id')->on('locations')->onDelete('SET NULL')->onUpdate('CASCADE');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('SET NULL')->onUpdate('CASCADE');
+            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('SET NULL')->onUpdate('CASCADE');
         });
     }
 

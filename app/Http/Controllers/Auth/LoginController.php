@@ -40,9 +40,9 @@ class LoginController extends Controller
                 return '/admin/dashboard';
                 break;
             default:
-                return '/user/dashboard';
-                break;
-        }
+            // site index page
+                return '/user/my-account';
+                break;}
     }
     /**
      * Create a new controller instance.

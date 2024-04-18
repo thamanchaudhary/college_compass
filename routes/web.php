@@ -18,7 +18,8 @@ Route::get('/', function () {
     return redirect()->route("login");
 });
 Auth::routes();
-
+Route::post('user/register',        [App\Http\Controllers\UserController::class, 'registerUser'])->name('signup-process');
+Route::post('/getAddress',          [App\Http\Controllers\DropdownController::class, 'getAddress'])->name('getAddress'); // for get land list
 
 /**
  * Admin  Routes
