@@ -9,26 +9,12 @@ class CollegeList extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'address',
-        'location_id',
-        'website',
-        'contact',
-        'email',
-        'examp_required',
-        'reconization',
-        'course',
-        'degree',
-        'description',
-    ];
+   
 
     public function getRules()
     {
         return [
             'name' => 'required|string|max:225|min:2',
-            'address' => 'required|string|max:225|min:2',
-            'location_id' => 'required|string|max:225',
             'website' => 'required|string|max:225|min:2',
             'contact' => 'required|string|max:225|min:2',
             'email' => 'required|string|max:225|min:2',

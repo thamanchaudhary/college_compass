@@ -26,14 +26,14 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Program', 'program_id', 'id');
     }
     // get User Intrested Location
-    public function IntrestedLocation()
+    public function inrestedCity()
     {
-        return $this->belongsTo('App\Models\Location', 'location_id', 'id');
+        return $this->belongsTo('App\Models\City', 'city_id', 'id');
     }
      //COllege Location
-     public function collegeLocation()
+     public function inrestedAddress()
      {
-         return $this->belongsTo(Location::class, 'location_id');
+            return $this->belongsTo('App\Models\Address', 'address_id', 'id');
      }
    
     public function storeData(Request $request, $name, $username, $email, $mobile, $password, $avatar )

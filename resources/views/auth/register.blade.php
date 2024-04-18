@@ -96,7 +96,7 @@
                 },
                 dataType: 'json',
                 success: function(result) {
-                    $('#address_id').append('<option value="">-- Choose Sub Category --</option>');
+                    $('#address_id').append('<option value="">-- Choose Address --</option>');
                     $.each(result.address, function(key, value) {
                         $("#address_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                     });

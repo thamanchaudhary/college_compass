@@ -39,11 +39,13 @@ class CollegeListController extends DM_BaseController
     }
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
-        $model->address               = $request->address;
-        $model->location_id           = $request->location_id;
+        $model->city_id               = $request->city_id;
+        $model->address_id            = $request->address_id;
+        $model->university_id           = $request->university_id;
         $model->website               = $request->website;
         $model->contact               = $request->contact;
         $model->email                 = $request->email;

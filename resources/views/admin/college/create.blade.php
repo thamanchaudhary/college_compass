@@ -37,19 +37,10 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="address">Address</label> <br>
-                                <input class="form-control rounded" type="text" id="address" value="{{ old('address') }}" name="address" placeholder="Address">
-                                @if($errors->has('address'))
-                                <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('address') }}</span></p>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
                                 <label for="city_id">City</label> <br>
                                 <select id="city_id" name="city_id" class="form-control">
                                     @if(isset($data['city']))
-                                    <option value=>--Choose Location--</option>
+                                    <option value=>--Choose City--</option>
                                     @foreach($data['city'] as $row)
                                     <option value="{{ $row->id }}">{{ $row->name }}</option>
                                     @endforeach
@@ -60,6 +51,17 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="address">Address</label> <br>
+                                <select name="address_id" id="address_id" class="form-control">
+                                    <option value=>Choose Address</option>
+                                </select> @if($errors->has('address'))
+                                <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('address') }}</span></p>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="website">Website</label> <br>
@@ -211,6 +213,34 @@
 <script>
     $(document).ready(function() {
         $('.js-example-basic-multiple').select2();
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        //Get  Location 
+        $('#city_id').change(function() {
+            var idCity = this.value;
+            $("#address_id").html('');
+            var url = "{{route('getAddress')}}";
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    city_id: idCity,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#address_id').append('<option value="">-- Choose Address --</option>');
+                    $.each(result.address, function(key, value) {
+                        $("#address_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+
+
     });
 </script>
 
