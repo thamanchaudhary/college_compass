@@ -30,7 +30,7 @@
             <br>
             <p>Dear Parents, Guardians & Students. Welcome to the 2024 school year.</p>
             <p>College Compass is a community of learners including students, parents and staff who are dedicated to creating an academically rigorous, culturally caring and inclusive learning environment. We are Reaching Excellence in Academics and Changing History! Together, we are champions of knowledge, our communities, the environment and of our futures. APPROACH Achievers are goal-oriented, critical thinkers and community leaders who are dedicated to achieving the highest level of integrity and academic success.</p>
-            <a href="career.php"><button class="btn">Learn More</button></a>
+            <a href="{{ route('site.career')}}"><button class="btn">Learn More</button></a>
         </div>
 
         <div class="image">

@@ -71,7 +71,7 @@
                         <h3 style="font-size: 20px;">{{ $row->name }}</h3>
                         <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->University)) {{ $row->University->name  }} @endif</p>
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
-                        <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city }}</p>
+                        <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :@if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif</p>
                     </div>
                     <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
                         <form style="margin-top: -19px;">

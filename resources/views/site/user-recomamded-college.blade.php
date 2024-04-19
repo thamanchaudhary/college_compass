@@ -54,9 +54,9 @@
                                             <div class="col-md-8" style="padding-left: 0px;">
                                                 <h3 style="font-size: 20px;">{{ $row->name }}</h3>
                                                 <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">Program</b> : {{$row->program_name }}</p>
-                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->university_name)) {{ $row->university_name  }} @endif</p>
+                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : {{ $row->university_name}}</p>
                                                 <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
-                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->location_name }}</p>
+                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city_name }}</p>
                                             </div>
 
                                             <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
@@ -64,8 +64,6 @@
                                                 <form style="margin-top: -19px;">
                                                     <input type="hidden" name="college_id" value="{{ $row->id }}">
                                                     </button> <a class="btn btn-default btn-md" style="margin-left: 5px;margin-right: 10px;" id="1" href="{{ route('site.post.show', ['id' => $row->id]) }}">View College</a>
-                                                    <input type="hidden" name="college_id" value="{{ $row->id }}">
-                                                    <a href="javascript:void(0)" class="delete-wishlist btn btn-success btn-sm" data-id="{{ $row->id }}"><i class="icon anm anm-trash-l"></i><i class="icon anm anm-times-r"></i>Remove Wishlist</a>
                                                 </form>
                                                 <!-- Remove Wish list -->
                                             </div>

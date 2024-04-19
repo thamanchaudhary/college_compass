@@ -31,8 +31,8 @@
                             <tr>
                                 <th>S.N</th>
                                 <th>College Name</th>
-                                <th>Address</th>
                                 <th>City</th>
+                                <th>Address</th>
                                 <th>Website</th>
                                 <th class="hidden-phone">Action</th>
                             </tr>
@@ -42,10 +42,10 @@
                             <tr class="gradeX">
                                 <td>{{$loop->iteration}}.</td>
                                 <td>{{$row->name}}</td>
-                                <td>{{$row->address}}</td>
                                 <td>
-                                    @if(isset($row->collegeLocation)) {{ $row->collegeLocation->name  }} @endif
+                                @if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif
                                 </td>
+                                <td>@if(isset($row->CollegeAddress)) {{ $row->CollegeAddress->name}} @endif</td>
                                 <td>{{$row->website}}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |

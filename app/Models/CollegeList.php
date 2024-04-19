@@ -24,15 +24,19 @@ class CollegeList extends Model
             'image_1' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
     }
-
     public function getData()
     {
         return $this->paginate(10);
     }
     //COllege Location
-    public function collegeLocation()
+    public function CollegeCity()
     {
-        return $this->belongsTo(Location::class, 'location_id');
+        return $this->belongsTo(City::class, 'city_id');
+    }
+    // College Address
+    public function CollegeAddress()
+    {
+        return $this->belongsTo(Address::class, 'address_id');
     }
     public function getUniversity()
     {
@@ -46,6 +50,10 @@ class CollegeList extends Model
     public function getCity()
     {
         return City::get();
+    }
+    public function getCollegeAddress()
+    {
+        return Address::get();
     }
 
     public function University()
