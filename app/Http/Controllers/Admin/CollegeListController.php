@@ -49,6 +49,7 @@ class CollegeListController extends DM_BaseController
         $model->website               = $request->website;
         $model->contact               = $request->contact;
         $model->email                 = $request->email;
+        $model->college_fee           = $request->college_fee;
         $model->examp_required        = $request->examp_required;
         $model->course                = $request->course;
         $model->degree                = $request->degree;
@@ -99,6 +100,7 @@ class CollegeListController extends DM_BaseController
         $model->website                = $request->website;
         $model->contact                = $request->contact;
         $model->email                  = $request->email;
+        $model->college_fee            = $request->college_fee;
         $model->examp_required         = $request->examp_required;
         $model->course                 = $request->course;
         $model->degree                 = $request->degree;

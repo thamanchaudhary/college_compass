@@ -4,14 +4,18 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Admin\DM_BaseController;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\City;
+use App\Models\CollegeList;
 use App\Models\GeneralProfile;
 use App\Models\Location;
+use App\Models\Program;
 use App\Models\University;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends DM_BaseController
 {
@@ -23,12 +27,14 @@ class DashboardController extends DM_BaseController
     protected $model;
     protected $city;
     protected $university;
+    protected $collegeList;
 
-    public function __construct(User $model, City $city, University $university)
+    public function __construct(User $model, City $city, University $university, CollegeList $collegeList)
     {
         $this->model = $model;
         $this->city = $city;
         $this->university = $university;
+        $this->collegeList = $collegeList;
         $this->middleware('auth');
     }
 
@@ -40,11 +46,16 @@ class DashboardController extends DM_BaseController
     {
         $this->panel = 'Dashboard';
         $data['user'] = User::where('id', Auth::user()->id)->first();
+        $data['wish_count'] = DB::table('wishlists')->where('user_id', Auth::user()->id)->count();
+        $data['recommended_college'] = DB::table('college_lists')->where('city_id', Auth::user()->city_id)->count();
         return view(parent::loadView($this->view_path . '.user-information'), compact('data'));
     }
     // SHow Information
     public function ShowInformation()
     {
+        $data['program'] = Program::get();
+        $data['city'] = City::get();
+        $data['address'] = Address::get();
         $this->panel = 'Show Information';
         $data['user'] = User::where('id', Auth::user()->id)->first();
         return view(parent::loadView($this->view_path . '.user-information-show'), compact('data'));
@@ -76,14 +87,49 @@ class DashboardController extends DM_BaseController
     public function RecommendedCollege()
     {
         $this->panel = 'Recomamded College';
-        $data['rows'] = DB::table('college_lists')
-            ->join('programs', 'programs.id', '=', 'college_lists.program_id')
-            ->join('cities', 'cities.id', '=', 'college_lists.city_id')
-            ->join('universities', 'universities.id', '=', 'college_lists.university_id')
-            ->select('college_lists.*', 'programs.name as program_name', 'cities.name as city_name', 'universities.name as university_name')
-            ->where('college_lists.program_id', Auth::user()->program_id)
-            ->get();
-        // dd($data['rows']);
-        return view(parent::loadView($this->view_path . '.user-recomamded-college'), compact('data'));
+        $data['city_id'] = Auth::user()->city_id;
+        $data['program_id'] = Auth::user()->program_id;
+        $data['program_list'] = json_decode($data['program_id'], true);
+        //gert simiar program_list  in college_list table
+        foreach ($data['program_list'] as  $value) {
+            $data['rows'] = CollegeList::where('program_id', 'like', '%' . $value . '%')->where('city_id', $data['city_id'])->get();
+            return view(parent::loadView($this->view_path . '.user-recomamded-college'), compact('data'));
+        }
+    }
+    public function passwordChange(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'current_password' =>                            ['required', 'max:255'],
+            'password' =>                                    ['required', 'string', 'confirmed', 'min:5']
+        ]);
+        if (Hash::check($request->current_password, Auth::user()->password)) {
+            $row = $this->model::findOrFail(Auth::user()->id);
+            $row->password = Hash::make($request->password);
+            $row->save();
+            session()->flash('alert-success', 'Password changed successfully.');
+            Auth::logout();
+            return redirect()->route('login');
+        } else {
+            session()->flash('alert-warning', 'Password did not match.');
+            return redirect()->back();
+        }
+    }
+
+    // USer Profile Update
+    public function updateProfile(Request $request)
+    {
+        // dd($request->all());
+
+        $row = $this->model::findOrFail(Auth::user()->id);
+        $row->name = $request->name;
+        $row->username = $request->username;
+        $row->email = $request->email;
+        $row->program_id = $request->program_id;
+        $row->city_id = $request->city_id;
+        $row->address_id = $request->address_id;
+        $row->save();
+        session()->flash('alert-success', 'Profile updated successfully.');
+        return redirect()->back();
     }
 }

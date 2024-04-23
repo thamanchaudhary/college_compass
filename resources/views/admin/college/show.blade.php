@@ -9,11 +9,13 @@
         <!-- College Detail -->
         <div class="bio-row">
             <p><span class="bold">College Name </span>: {{ $data['rows']->name }}</p>
-            <p><span class="bold">Address </span>: {{ $data['rows']->address }}</p>
-            <p><span class="bold">City </span>: {{ $data['rows']->city }}</p>
+            <p><span class="bold">City </span>: @if(isset($data['rows']->CollegeCity)) {{ $data['rows']->CollegeCity->name}} @endif</p>
+            <p><span class="bold">Address </span>:@if(isset($data['rows']->CollegeAddress)) {{ $data['rows']->CollegeAddress->name}} @endif</p>
+
             <p><span class="bold">Website </span>: {{ $data['rows']->website }}</p>
             <p><span class="bold">Contact </span>: {{ $data['rows']->contact }}</p>
             <p><span class="bold">Email </span>: {{ $data['rows']->email }}</p>
+            <p><span class="bold">College Fee </span>: {{ $data['rows']->college_fee }}</p>
             <p><span class="bold">Examp Required </span>: {{ $data['rows']->examp_required }}</p>
             <p><span class="bold">Reconization </span>:@if(isset($data['rows']->University)) {{ $data['rows']->University->name  }} @endif</p>
             <p><span class="bold">Program </span>:@if(isset($data['rows']->Program)) {{ $data['rows']->Program->name  }} @endif</p>

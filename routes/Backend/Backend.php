@@ -64,6 +64,7 @@ Route::group(['prefix' => 'university',                     'as' => 'university.
     Route::get('/{id}',                                [App\Http\Controllers\Admin\UniversityController::class, 'destroy'])->name('destroy');
     Route::get('/show/{id}',                           [App\Http\Controllers\Admin\UniversityController::class, 'show'])->name('show');
 });
+
 /** 
  * Program Setup  ////
  */

@@ -20,15 +20,20 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
             // 'mobile' => 'required|numeric',
-            'program_id' => 'required|numeric',
-            'city_id'   => 'required|numeric',
-            'address_id' => 'required|numeric',
+            //            'program_id' => 'required|numeric',
+            //'city_id'   => 'required|numeric',
+            //   'address_id' => 'required|numeric',
             'password' => 'required|string|min:8|confirmed',
         );
         $request->validate($rules);
-        $data = $request->all();
+
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['program_id'] = json_encode($request->program_id);
+        $data['city_id'] = $request->city_id;
+        $data['address_id'] = json_encode($request->address_id);
         $data['email_token'] = \Str::random(100);
-        $data['password'] = Hash::make($data['password']);
+        $data['password'] = Hash::make($request->password);
         $this->user->fill($data);
         $status = $this->user->save();
         if ($status) {

@@ -2,6 +2,7 @@
 
 namespace Illuminate\Foundation\Auth;
 
+use App\Models\Address;
 use App\Models\City;
 use App\Models\Location;
 use App\Models\Program;
@@ -23,6 +24,7 @@ trait RegistersUsers
     {
         $data['program'] = Program::get();
         $data['city'] = City::get();
+        $data['address'] = Address::get();
         return view('auth.register', compact('data'));
     }
 

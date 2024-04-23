@@ -1,5 +1,8 @@
 @extends('layouts.login')
 @section('title', 'New User')
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endsection
 @section('content')
 <div class="content">
     <div class="brand">
@@ -22,7 +25,7 @@
         </div>
         <!-- Program Select Option -->
         <div class="form-group">
-            <select class="form-control" name="program_id">
+            <select class="form-control js-example-basic-multiple" name="program_id[]" multiple="multiple">
                 <option value="">Select Program</option>
                 @if(isset($all_view['program']))
                 @foreach($all_view['program'] as $row)
@@ -36,7 +39,7 @@
         </div>
         <!-- Location Select Option -->
         <div class="form-group">
-            <select class="form-control" name="city_id" id="city_id">
+            <select class="form-control js-example-basic-multiple" name="city_id" id="city_id">
                 <option value="">Select City</option>
                 @if(isset($data['city']))
                 @foreach($data['city'] as $row)
@@ -48,8 +51,13 @@
             @endif
         </div>
         <div class="form-group">
-            <select name="address_id" id="address_id" class="form-control">
-                <option value=>Choose Address</option>
+            <select class="form-control js-example-basic-multiple" name="address_id[]" id="address_id" multiple>
+                <option value="">Select Address</option>
+                @if(isset($data['address']))
+                @foreach($data['address'] as $row)
+                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                @endforeach
+                @endif
             </select>
             @if($errors->has('address_id'))
             <p id="name-error" class="help-block " for="address_id"><span>{{ $errors->first('address_id') }}</span></p>
@@ -79,8 +87,11 @@
 @endsection
 @section('js')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+
         //Get  Location 
         $('#city_id').change(function() {
             var idCity = this.value;

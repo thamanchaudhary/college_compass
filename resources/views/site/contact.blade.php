@@ -21,11 +21,11 @@
                         @csrf
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputName">Your Name: *</label>
-                            <input required type="text" class="form-control"  name="full_name" id="full_name" placeholder="Your Name: *">
+                            <input required type="text" class="form-control" name="full_name" id="full_name" placeholder="Your Name: *">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputEmail1">Email: *</label>
-                            <input required type="email" class="form-control"  name="email" id="email" placeholder="Email: *">
+                            <input required type="email" class="form-control" name="email" id="email" placeholder="Email: *">
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-md-6">

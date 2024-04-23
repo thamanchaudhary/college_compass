@@ -33,6 +33,11 @@ class CollegeList extends Model
     {
         return $this->belongsTo(City::class, 'city_id');
     }
+    // SHow University
+    public function ShowUniversity()
+    {
+        return $this->belongsTo(University::class, 'university_id');
+    }
     // College Address
     public function CollegeAddress()
     {

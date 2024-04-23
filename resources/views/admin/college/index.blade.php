@@ -34,6 +34,7 @@
                                 <th>City</th>
                                 <th>Address</th>
                                 <th>Website</th>
+                                <th>College Fee</th>
                                 <th class="hidden-phone">Action</th>
                             </tr>
                         </thead>
@@ -43,10 +44,11 @@
                                 <td>{{$loop->iteration}}.</td>
                                 <td>{{$row->name}}</td>
                                 <td>
-                                @if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif
+                                    @if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif
                                 </td>
                                 <td>@if(isset($row->CollegeAddress)) {{ $row->CollegeAddress->name}} @endif</td>
                                 <td>{{$row->website}}</td>
+                                <td>{{$row->college_fee}}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |
                                     <a href="{{ route($_base_route.'.destroy', ['id' => $row->id]) }}" onclick="return confirm('Are you sure you want to delete this item?');">Detete</a> |

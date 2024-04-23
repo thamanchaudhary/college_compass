@@ -93,6 +93,15 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
+                                <label for="college_fee">College Fee</label> <br>
+                                <input class="form-control rounded" type="text" id="college_fee" value="@if(isset($data['rows']->college_fee)) {{ $data['rows']->college_fee   }} @endif" name="college_fee" placeholder="College Fee">
+                                @if($errors->has('college_fee'))
+                                <p id="name-error" class="help-block" for="college_fee"><span>{{ $errors->first('college_fee') }}</span></p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
                                 <label for="examp_required">Exam Required</label> <br>
                                 <select name="examp_required" id="examp_required" class="form-control">
                                     <option value=>--Choose Exam--</option>

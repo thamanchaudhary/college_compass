@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="{{ csrf_token() }}" />
@@ -13,15 +12,11 @@
     <link rel="stylesheet" href="{{ asset('assets/site/css/collegecompass.css')}}">
     @yield('css')
 </head>
-
 <body>
     <!-- Header -->
-
     @include('site.includes.header')
     @yield('content')
     @include('site.includes.footer')
-
-
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->

@@ -19,6 +19,7 @@ class CreateCollegeListsTable extends Migration
             $table->string('website')->nullable();
             $table->string('contact')->nullable();
             $table->string('email')->nullable();
+            $table->string('college_fee')->nullable();
             $table->string('examp_required')->nullable();
             $table->string('course')->nullable();
             $table->string('degree')->nullable();

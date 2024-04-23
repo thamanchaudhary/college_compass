@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Admin\DM_BaseController;
 use App\Models\Eloquent\DM_Post;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Career;
@@ -34,7 +35,7 @@ class SiteController extends DM_BaseController
     protected $user;
     protected $city;
 
-    public function __construct(Request $request, DM_Post $dm_post, Setting $setting, User $user,City $city)
+    public function __construct(Request $request, DM_Post $dm_post, Setting $setting, User $user, City $city)
     {
         $this->dm_post = $dm_post;
         $this->user = $user;
@@ -54,6 +55,8 @@ class SiteController extends DM_BaseController
         $data['rows'] = CollegeList::orderBy('id', 'desc')->get();
         $data['university'] = University::get();
         $data['program'] = Program::get();
+        $data['city'] = City::get();
+        $data['address'] = Address::get();
         return view(parent::loadView($this->view_path . '.all-college'), compact('data'));
     }
 
@@ -75,7 +78,6 @@ class SiteController extends DM_BaseController
 
     public function search(Request $request)
     {
-        //Multilevel Search
         $program = $request->program;
         if (isset($program['0']) && $program['0'] != '') {
             $data['rows'] = CollegeList::where('program_id', $program['0'])
@@ -102,12 +104,14 @@ class SiteController extends DM_BaseController
             return redirect()->back()->with('error', 'Please Select Program');
         }
 
-        $city = $request->city;
+        $city_id = $request->city_id;
+        $address_id = $request->address_id;
         $university_id = $request->university_id;
-        $examp_required = $request->examp_required;
+        // $examp_required = $request->examp_required;
 
-        $data['rows'] = CollegeList::where('city', 'LIKE', '%' . $city . '%')
-            ->where('university_id', 'LIKE', '%' . $university_id . '%')
+        $data['rows'] = CollegeList::where('city_id', 'LIKE', '%' . $city_id . '%')
+            ->orwhere('address_id', 'LIKE', '%' . $address_id . '%')
+            ->orwhere('university_id', 'LIKE', '%' . $university_id . '%')
             ->orderBy('id', 'desc')
             ->get();
 
@@ -116,6 +120,8 @@ class SiteController extends DM_BaseController
         // dd($data['rows']);
         $data['university'] = University::get();
         $data['program'] = Program::get();
+        $data['city'] = City::get();
+        $data['address'] = Address::get();
         return view(parent::loadView($this->view_path . '.search'), compact('data'));
     }
 

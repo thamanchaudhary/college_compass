@@ -21,7 +21,7 @@
                             <li class="current"><a href="{{ route('user.detail-information')}}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                             <li><a href="{{route('user.ShowInformation')}}"><i class="glyphicon glyphicon-pencil"></i> Profile</a></li>
                             <li><a href="{{route('user.ShowWishlist')}}" class="{{ ($_panel == 'Show Wishlist') ? 'active' : '' }}"><i class="glyphicon glyphicon-pencil"></i> My Wish List</a></li>
-                            <li><a href="{{ route('user.RecommendedCollege')}}"  class="{{ ($_panel == 'Recomamded College') ? 'active' : '' }}"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
+                            <li><a href="{{ route('user.RecommendedCollege')}}" class="{{ ($_panel == 'Recomamded College') ? 'active' : '' }}"><i class="glyphicon glyphicon-tasks"></i>Recommended Colleges</a></li>
                             <li class="nav-item"><a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">Log Out</a> </li>
                             <form action="{{ route('logout')}}" method="post" id="logout-form" class="d-none">
                                 @csrf
@@ -54,9 +54,9 @@
                                             <div class="col-md-8" style="padding-left: 0px;">
                                                 <h3 style="font-size: 20px;">{{ $row->name }}</h3>
                                                 <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">Program</b> : {{$row->program_name }}</p>
-                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : {{ $row->university_name}}</p>
+                                                <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->ShowUniversity)) {{ $row->ShowUniversity->name}} @endif</p>
                                                 <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
-                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :{{$row->city_name }}</p>
+                                                <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :@if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif</p>
                                             </div>
 
                                             <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">

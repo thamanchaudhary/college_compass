@@ -93,8 +93,11 @@
                 <div class="page-header">
                     <h3 style="color:#368dc5">Contact Information of </h3>
                 </div>
-                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Address:</span>
-                    {{ $data['single']->address}}
+                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">City:</span>
+                    @if(isset($data['single']->CollegeCity)) {{ $data['single']->CollegeCity->name}} @endif
+                </p>
+                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Location:</span>
+                    @if(isset($data['single']->CollegeAddress)) {{ $data['single']->CollegeAddress->name}} @endif
                 </p>
                 </p>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Website:</span><a href="" target="_blank">
@@ -102,6 +105,9 @@
                 </a></p>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">E-mail:</span>
                     {{ $data['single']->email}}
+                </p>
+                <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">College Fee:</span>
+                    {{ $data['single']->college_fee}}
                 </p>
                 <p style="color: #3e3e3e;font-weight: 400;font-size: large;"><span style="color:#2f2e2e;font-weight:bolder;font-size:24px;">Contact
                         No:</span> {{ $data['single']->contact}}</p>

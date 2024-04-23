@@ -27,25 +27,39 @@
                         @endif
                         <h3 style="font-size: 20px;margin-top:20px;margin-bottom:15px;">City</h3>
                         <hr>
-                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">City</span>
-                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city">
-                            <option value="all">All</option>
-                            <option value="kathmandu">Kathmandu</option>
-                            <option value="lalitpur">Lalitpur</option>
-                            <option value="bhaktapur">Bhaktapur</option>
-                            <option value="pokhara">Pokhara</option>
-                            <option value="hetauda">Hetauda</option>
-                        </select>
-                        <hr>
+
                         <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">University</span>
                         <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="university_id">
-                            <option value="all">University</option>
+                            <option value="all">Select University</option>
                             @if(isset($data['university']))
                             @foreach($data['university'] as $row)
                             <option value="{{$row->id }}">{{ $row->name }}</option>
                             @endforeach
                             @endif
                         </select>
+                        <hr>
+
+                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">City</span>
+                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="city_id">
+                            <option value="all">Select City</option>
+                            @if(isset($data['city']))
+                            @foreach($data['city'] as $row)
+                            <option value="{{$row->id }}">{{ $row->name }}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                        <hr>
+                        <span style="font-size: 18px;font-weight: 900;color: rgba(34, 34, 34, 0.68);margin-top: 30px; margin-bottom:15px;">Address</span>
+                        <select style="width: 65%;height: 30px;font-size: 19px;margin-left:12px;border-radius: 3px;" name="address_id">
+                            <option value="all">Select Address</option>
+                            @if(isset($data['address']))
+                            @foreach($data['address'] as $row)
+                            <option value="{{$row->id }}">{{ $row->name }}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                        <hr>
+
 
                         <p><input type="submit" class="btn btn-default btn-md" style="width: 100%;" name="filter_value" value="Apply Filters"></p>
                     </form>
@@ -72,6 +86,8 @@
                         <p style="margin-top: 10px;"><b style="color: #397adc;font-size: 18px;">University</b> : @if(isset($row->University)) {{ $row->University->name  }} @endif</p>
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">Exams Required</b> {{ $row->examp_required}}</p>
                         <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">City</b> :@if(isset($row->CollegeCity)) {{ $row->CollegeCity->name}} @endif</p>
+                        <p style="margin-top: 5px;"><b style="color: #397adc;font-size: 18px;">College Fee</b> :{{ $row->college_fee}}</p>
+
                     </div>
                     <div class="col-md-12" style="background-color: #222222;height: 56px;margin-top: 0.5px;border-radius: 3px;">
                         <form style="margin-top: -19px;">

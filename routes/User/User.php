@@ -9,6 +9,12 @@ Route::get('/my-account/wishlist',    [App\Http\Controllers\User\DashboardContro
 
 // User Recomamded College with Program and Location
 Route::get('/my-account/recomamded-college', [App\Http\Controllers\User\DashboardController::class, 'RecommendedCollege'])->name('RecommendedCollege');
+
+
+Route::post('/change-password',                    [App\Http\Controllers\User\DashboardController::class, 'passwordChange'])->name('user_profile.passwordChange');
+
+Route::post('/update-profile',                     [App\Http\Controllers\User\DashboardController::class, 'updateProfile'])->name('user_profile.updateProfile');
+
 /**
  * Route for Wishlist
  

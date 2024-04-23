@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'NlpTools\\' => array($vendorDir . '/nlp-tools/nlp-tools/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
 );
