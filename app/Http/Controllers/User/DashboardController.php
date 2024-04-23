@@ -91,10 +91,14 @@ class DashboardController extends DM_BaseController
         $data['program_id'] = Auth::user()->program_id;
         $data['program_list'] = json_decode($data['program_id'], true);
         //gert simiar program_list  in college_list table
-        foreach ($data['program_list'] as  $value) {
-            $data['rows'] = CollegeList::where('program_id', 'like', '%' . $value . '%')->where('city_id', $data['city_id'])->get();
-            return view(parent::loadView($this->view_path . '.user-recomamded-college'), compact('data'));
-        }
+        $data['rows'] = DB::table('college_lists')
+            ->join('cities', 'cities.id', '=', 'college_lists.city_id')
+            ->join('addresses', 'addresses.id', '=', 'college_lists.address_id')
+            ->select('college_lists.*', 'cities.name as city_name', 'addresses.name as address_name')
+            ->where('college_lists.city_id', Auth::user()->city_id)
+            
+            ->get();
+        return view(parent::loadView($this->view_path . '.user-recomamded-college'), compact('data'));
     }
     public function passwordChange(Request $request)
     {

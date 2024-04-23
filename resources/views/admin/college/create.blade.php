@@ -132,15 +132,9 @@
                             <div class="form-group">
                                 <label for="email">Program</label> <br>
                                 <select name="program_id[]" id="program_id" class="form-control js-example-basic-multiple" multiple="multiple">
-                                    @if(isset($data['program']))
-                                    <option value=>--Choose Program--</option>
-                                    @foreach($data['program'] as $row)
-                                    <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                    @endforeach
-                                    @endif
                                 </select>
-                                @if($errors->has('email'))
-                                <p id="name-error" class="help-block" for="email"><span>{{ $errors->first('email') }}</span></p>
+                                @if($errors->has('program_id'))
+                                <p id="name-error" class="help-block" for="program_id"><span>{{ $errors->first('program_id') }}</span></p>
                                 @endif
                             </div>
                         </div>
@@ -243,6 +237,28 @@
                     $('#address_id').append('<option value="">-- Choose Address --</option>');
                     $.each(result.address, function(key, value) {
                         $("#address_id").append('<option value="' + value.id + '">' + value.name + '</option>');
+                    });
+                }
+            });
+        });
+
+        // GET Program
+        $('#university_id').change(function() {
+            var idUniversity = this.value;
+            $("#program_id").html('');
+            var url = "{{route('getProgram')}}";
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    university_id: idUniversity,
+                    _token: '{{csrf_token()}}'
+                },
+                dataType: 'json',
+                success: function(result) {
+                    $('#program_id').append('<option value="">-- Choose Program --</option>');
+                    $.each(result.program, function(key, value) {
+                        $("#program_id").append('<option value="' + value.id + '">' + value.name + '</option>');
                     });
                 }
             });

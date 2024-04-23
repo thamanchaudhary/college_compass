@@ -26,6 +26,22 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label for="university_id">Choose University </label> <br>
+                                <select id="university_id" name="university_id" class="form-control">
+                                    @if(isset($data['university']))
+                                    <option value=>--Choose City--</option>
+                                    @foreach($data['university'] as $row)
+                                    <option value="{{ $row->id }}"  @if($data['rows']->university_id == $row->id) selected @endif>{{ $row->name }}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                                @if($errors->has('city_id'))
+                                <p id="name-error" class="help-block" for="title"><span>{{ $errors->first('city_id') }}</span></p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="title">Name</label> <br>
                                 <input class="form-control rounded" type="text" id="title" value="@if(isset($data['rows']->name)) {{ $data['rows']->name }} @else {{ old('name') }} @endif" name="name" placeholder="Name">
                                 @if($errors->has('title'))

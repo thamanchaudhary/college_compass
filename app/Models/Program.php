@@ -25,5 +25,17 @@ class Program extends Model
         return $this->paginate(10);
     }
 
+    public function getUniversity()
+    {
+        return University::all();
+    }
+
+    // get university name
+    public function getUniversityName()
+    {
+        return $this->belongsTo(University::class, 'university_id');
+
+    }
+
   
 }

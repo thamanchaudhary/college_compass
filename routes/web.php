@@ -20,6 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::post('user/register',        [App\Http\Controllers\UserController::class, 'registerUser'])->name('signup-process');
 Route::post('/getAddress',          [App\Http\Controllers\DropdownController::class, 'getAddress'])->name('getAddress'); // for get land list
+//get program
+Route::post('/getProgram',          [App\Http\Controllers\DropdownController::class, 'getProgram'])->name('getProgram'); // for get program list
 
 /**
  * Admin  Routes

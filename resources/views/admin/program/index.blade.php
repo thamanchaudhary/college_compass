@@ -29,7 +29,8 @@
                         <thead>
                             <tr>
                                 <th>S.N</th>
-                                <th>Title</th>
+                                <th>University</th>
+                                <th>Program </th>
                                 <th class="hidden-phone">Sction</th>
                             </tr>
                         </thead>
@@ -38,6 +39,7 @@
                             @foreach($data['rows'] as $row)
                             <tr class="gradeX">
                                 <td>{{$loop->iteration}}.</td>
+                                <td>@if(isset($row->getUniversityName)) {{ $row->getUniversityName->name}} @endif</td>
                                 <td>{{$row->name}}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |

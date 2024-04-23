@@ -30,12 +30,14 @@ class ProgramController extends DM_BaseController
 
     public function create()
     {
-        return view(parent::loadView($this->view_path . '.create'));
+        $data['university'] = $this->model->getUniversity();
+        return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
     {
         $request->validate($this->model->getRules());
         $model                        = $this->model;
+        $model->university_id         = $request->university_id;
         $model->name                  = $request->name;
         $success                      = $model->save();
         if ($success) {
@@ -47,6 +49,7 @@ class ProgramController extends DM_BaseController
     }
     public function edit($id)
     {
+        $data['university'] = $this->model->getUniversity();
         $data['rows'] = $this->model::where('id', '=', $id)->firstOrFail();
         return view(parent::loadView($this->view_path . '.edit'), compact('data'));
     }
@@ -54,6 +57,7 @@ class ProgramController extends DM_BaseController
     {
         $request->validate($this->model->getRules());
         $model                         = $this->model::where('id', '=', $id)->first();
+        $model->university_id          = $request->university_id;
         $model->name                   = $request->name;
         $success                       = $model->save();
         if ($success) {

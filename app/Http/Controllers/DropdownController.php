@@ -40,4 +40,13 @@ class DropdownController extends Controller
             ->get();
         return response()->json($data);
     }
+
+    //get program
+    function getProgram(Request $request)
+    {
+        $data['program'] = DB::table('programs')
+            ->where('university_id', '=', $request->university_id)
+            ->get();
+        return response()->json($data);
+    }
 }

@@ -30,7 +30,6 @@
                             <tr>
                                 <th>S.N</th>
                                 <th>Title</th>
-                                <th>status </th>
                                 <th class="hidden-phone">Sction</th>
                             </tr>
                         </thead>
@@ -40,7 +39,6 @@
                             <tr class="gradeX">
                                 <td>{{$loop->iteration}}.</td>
                                 <td>{{$row->name}}</td>
-                                <td>{{ (($row->status) == 1 ? 'Active' : 'Inactive') }}</td>
                                 <td class="center hidden-phone">
                                     <a href="{{route( $_base_route.'.edit', $row->id )}}">Edit</a> |
                                     <a href="{{ route($_base_route.'.destroy', ['id' => $row->id]) }}" onclick="return confirm('Are you sure you want to delete this item?');">Detete</a> |

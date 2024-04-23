@@ -16,6 +16,8 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('university_id')->nullable();
+            $table->foreign('university_id')->references('id')->on('universities')->onDelete('SET NULL')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }
