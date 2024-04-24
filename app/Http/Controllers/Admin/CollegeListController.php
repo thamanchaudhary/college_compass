@@ -41,7 +41,7 @@ class CollegeListController extends DM_BaseController
     public function store(Request $request)
     {
         // dd($request->all());
-        // $request->validate($this->model->getRules());
+        $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
         $model->city_id               = $request->city_id;
@@ -90,7 +90,7 @@ class CollegeListController extends DM_BaseController
     }
     public function update(Request $request, $id)
     {
-        // $request->validate($this->model->getRules());
+        $request->validate($this->model->getRules());
         $model                         = $this->model::where('id', '=', $id)->first();
         $model->name                   = $request->name;
         $model->city_id               = $request->city_id;
