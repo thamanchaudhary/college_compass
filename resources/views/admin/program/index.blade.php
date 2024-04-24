@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Program List')
 @section('css')
-
 @endsection
 @section('content')
 <div class="container">
@@ -12,7 +11,6 @@
     </div>
 </div>
 @include('admin.section.flash-message')
-
 <div class="row">
     <div class="col-lg-12 col-sm-12">
         <section class="card">
@@ -48,7 +46,6 @@
                             </tr>
                             @endforeach
                             @endif
-                            
                     </table>
                 </div>
                 <div class="row">

@@ -35,13 +35,13 @@ class CollegeListController extends DM_BaseController
         $data['university'] = $this->model->getUniversity();
         $data['program'] = $this->model->getProgram();
         $data['city'] = $this->model->getCity();
-        
+
         return view(parent::loadView($this->view_path . '.create'), compact('data'));
     }
     public function store(Request $request)
     {
         // dd($request->all());
-        $request->validate($this->model->getRules());
+        // $request->validate($this->model->getRules());
         $model                        = $this->model;
         $model->name                  = $request->name;
         $model->city_id               = $request->city_id;
@@ -57,9 +57,7 @@ class CollegeListController extends DM_BaseController
         $model->description           = $request->description;
         $model->university_id         = $request->university_id;
         // Multiple Program Store
-        $model->program_id            = implode(',', $request->program_id);
-
-
+        $model->program_id            = json_encode($request->program_id);
         $success                      = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {
@@ -92,7 +90,7 @@ class CollegeListController extends DM_BaseController
     }
     public function update(Request $request, $id)
     {
-        $request->validate($this->model->getRules());
+        // $request->validate($this->model->getRules());
         $model                         = $this->model::where('id', '=', $id)->first();
         $model->name                   = $request->name;
         $model->city_id               = $request->city_id;
@@ -107,7 +105,7 @@ class CollegeListController extends DM_BaseController
         $model->degree                 = $request->degree;
         $model->description            = $request->description;
         // Multiple Program Store
-        $model->program_id            = implode(',', $request->program_id);
+        $model->program_id            = json_encode($request->program_id);
         $success                       = $model->save();
         if ($success) {
             if ($request->hasFile('image_1')) {

@@ -130,17 +130,18 @@
                                 @endif
                             </div>
                         </div>
+                        <?php $featuredArray = json_decode($data['rows']->program_id); ?>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Program</label> <br>
                                 <select name="program_id[]" id="program_id" class="form-control js-example-basic-multiple" multiple="multiple">
-                                    @if(isset($data['program']))
-                                    <option value=>--Choose Program--</option>
-                                    @foreach($data['program'] as $row)
-                                    <option value="{{ $row->id }}" @if($data['rows']->program_id == $row->id) selected @endif>{{ $row->name }}</option>
+                                    @if(isset($all_view['program']))
+                                    @foreach($all_view['program'] as $row)
+                                    @if(isset($featuredArray))
+                                    <option value="{{ $row->id }}" {{ $row->id }}" {{ in_array($row->id, $featuredArray) ? 'selected' : '' }}>{{ $row->name }}</option>
+                                    @endif
                                     @endforeach
-                                    <option value="{{ $row->id }}" {{ $data['rows']->program_id == explode(', ', $row->id) ? 'selected' : '' }}>{{ $row->name }}
-                                        @endif
+                                    @endif
                                 </select>
                                 @if($errors->has('email'))
                                 <p id="name-error" class="help-block" for="email"><span>{{ $errors->first('email') }}</span></p>
